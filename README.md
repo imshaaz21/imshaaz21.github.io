@@ -14,4 +14,4 @@ To run the project:
 
 ### Demo 🌐
 
-A live demo of the portfolio is available [here](imshaaz21.github.io/) 👀.
+A live demo of the portfolio is available [here](https://imshaaz21.github.io/) 👀.
