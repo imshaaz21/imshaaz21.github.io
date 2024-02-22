@@ -25,8 +25,8 @@
       "workplace": "Dialog Axiata PLC, Colombo, Sri Lanka",
       "date": "Jan 2023 - Jun 2023",
       "descriptions": [
-        "Woked in the MDT data processing visualization project and developed a web application to visualize the data using React and Python, with the help of Networking and Access Planning team.",
-        "Developed a anomaly detecttion model using facebook's Prophet library to detect anomalies in the network data"
+        "Worked in the MDT data processing visualization project and developed a web application to visualize the data using React and Python, with the help of NetWorking and Access Planning team.",
+        "Developed an anomaly detection model using FaceBook's Prophet library to detect anomalies in the network data"
       ]
     },
     {
@@ -34,7 +34,7 @@
       "workplace": "Fiverr",
       "date": "Feb 2022 - Present",
       "descriptions": [
-        "Level 2 seller with more than 85 5-Star Rating",
+        "Level 2 seller with more than 85+ 5-Star Rating",
         "Developed web and mobile applications using various technologies such as  React, ReactNative Node.js, Express.js, SpringBoot, Python, MongoDB, MySQL and many more",
         "Served for clients from USA, UK, Australia, Canada, and many more countries."
       ]
@@ -45,7 +45,7 @@
       "date": "Jun 2023 - Dec 2023",
       "descriptions": [
         "Developed mobile applications using ReactNative",
-        "Woked as a backend developer for the web applications using Node.js, Express.js, MongoDB"
+        "Worked as a backend developer for the web applications using Node.js, Express.js, MongoDB"
       ]
     }
   ],
@@ -58,7 +58,7 @@
     },
     {
       "field": "GCE Advanced Level",
-      "place": "Kekunagolla National School, Kurunegala",
+      "place": "Kekunagolla National School, Kurunegala, Sri Lanka",
       "date": "2018",
       "descriptions": [
         "Stream: Physical Science",
@@ -67,16 +67,16 @@
     },
     {
       "field": "GCE Ordinary Level",
-      "place": "Minhath National School, Dikwella",
+      "place": "Minhath National School, Dikwella, Sri Lanka",
       "date": "2015",
-      "descriptions": ["Results: 7A's, 1B, 1C"]
+      "descriptions": []
     }
   ],
   "projects": [
     {
       "title": "The Bank App",
       "description": "TheBankApp extends banking reach with mobile devices, enabling essential services like withdrawals, deposits, and balance inquiries through local agents. It syncs transactions with a centralized database, supports account management, interest calculation, and offers fixed deposit plans. User-friendly interfaces enhance accessibility.",
-      "image": "micro-bank.webp",
+      "image": "projects/micro-bank.webp",
       "link": "https://github.com/imshaaz21/TheBankApp"
     },
     {
@@ -104,10 +104,77 @@
       "link": "https://github.com/imshaaz21/N-Puzzle"
     },
     {
-      "title": "Canny Edge Detection",
+      "title": "Canny Edge Detection from Scratch",
       "description": "Canny Edge Detection in Python is an image processing technique developed from scratch. It identifies edges through grayscale conversion, Gaussian blurring, gradient estimation, non-maximum suppression, and dual thresholding. Ideal for computer vision tasks, it requires Python, NumPy, and Matplotlib for implementation.",
-      "image": "cannyEdge.png",
+      "image": "projects/cannyEdge.png",
       "link": "https://github.com/imshaaz21/CannyEdgeDetection"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "image": "programming-languages.png",
+      "description": "Proficient in various programming languages with hands-on experience in developing diverse applications and projects.",
+      "items": [
+        "Python",
+        "JavaScript",
+        "Java",
+        "C#",
+        "C",
+        "C++",
+        "Dart",
+        "VHDL"
+      ]
+    },
+    {
+      "category": "Web Development",
+      "image": "web-technologies.png",
+      "description": "Experienced in front-end and back-end development, crafting dynamic and interactive web applications. Proficient in various web technologies and frameworks.",
+      "items": [
+        "React",
+        "Node.js",
+        "Express.js",
+        "SpringBoot",
+        "Django",
+        "Flask",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "category": "Mobile Development",
+      "image": "mobile-technologies.png",
+      "description": "Skilled in mobile app development for both native Android and cross-platform environments, ensuring optimal performance and user experience.",
+      "items": ["ReactNative", "Flutter", "Android Studio"]
+    },
+    {
+      "category": "Machine Learning and AI",
+      "image": "machine-learning.png",
+      "description": "Well-versed in machine learning and artificial intelligence, applying advanced algorithms to derive insights and enhance decision-making processes.",
+      "items": [
+        "TensorFlow",
+        "Keras",
+        "PyTorch",
+        "Scikit-learn",
+        "OpenCV",
+        "FaceBook Prophet",
+        "Pandas",
+        "Numpy",
+        "Matplotlib"
+      ]
+    },
+    {
+      "category": "Databases",
+      "image": "databases.png",
+      "description": "Skilled in database management systems, including SQL, NoSQL and embedded databases.",
+      "items": ["MongoDB", "MySQL", "PostgreSQL", "SQLite"]
+    },
+    {
+      "category": "Tools and Platforms",
+      "image": "tools-and-platforms.png",
+      "description": "Proficient in various tools and platforms, ensuring seamless development and deployment of applications.",
+      "items": ["Git", "Docker", "Linux"]
     }
   ],
   "contact": {

@@ -13,6 +13,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import React, { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const Project = ({ project, maxDescriptionHeight }) => {
   const theme = useTheme();
@@ -30,13 +31,21 @@ const Project = ({ project, maxDescriptionHeight }) => {
       sx={{ maxWidth: 345, backgroundColor: themeColors.background.primary }}
     >
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={project?.image || '/fff.png'}
-          alt={project?.title}
-        />
-        <CardContent sx={{ backgroundColor: themeColors.background.secondary }} onClick={()=>{window.open(project?.link || '/', "_blank")}}> 
+        <LazyLoadComponent threshold={10}>
+          <CardMedia
+            component="img"
+            height="140"
+            image={project?.image || "/fff.png"}
+            alt={project?.title}
+            loading="lazy"
+          />
+        </LazyLoadComponent>
+        <CardContent
+          sx={{ backgroundColor: themeColors.background.secondary }}
+          onClick={() => {
+            window.open(project?.link || "/", "_blank");
+          }}
+        >
           <Typography
             gutterBottom
             variant="h6"
@@ -49,7 +58,7 @@ const Project = ({ project, maxDescriptionHeight }) => {
           <Typography
             variant="body2"
             color={themeColors.text.secondary}
-            height={isMobile ? "auto" : maxDescriptionHeight/3}
+            height={isMobile ? "auto" : maxDescriptionHeight / 3}
           >
             {project?.description}
           </Typography>

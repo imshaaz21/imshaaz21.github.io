@@ -13,7 +13,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
 
-const SocialMediaIcons = ({ github,linkedin,email}) => {
+const SocialMediaIcons = ({ github, linkedin, email }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { theme: colorTheme } = useContext(ThemeContext);
@@ -28,7 +28,7 @@ const SocialMediaIcons = ({ github,linkedin,email}) => {
         marginTop: 1,
         justifyContent: {
           xs: "center",
-          md: theme.breakpoints.up("md") ? "flex-start" : "center",
+          md: theme.breakpoints.up("md") ? "center" : "center",
         },
         paddingLeft: { md: 0 },
         marginLeft: { md: 0 },

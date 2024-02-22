@@ -6,14 +6,15 @@ import { Box } from "@mui/material";
 import Meta from "./components/Meta";
 import Navbar from "./components/NavBar";
 import About from "./components/About";
-import Experince from "./components/Experince";
-import Education from "./components/Education";
+import Experiences from "./components/Experiences";
+import Educations from "./components/Educations";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import details from "../details.json";
 import "./App.css";
+import Skills from "./components/Skills";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -53,9 +54,10 @@ function App() {
             <>
               <Meta meta={details.meta} />
               <About about={details.about} />
-              <Experince experiences={details.experiences} />
+              <Experiences experiences={details.experiences} />
               <Projects projects={details.projects} />
-              <Education educations={details.educations} />
+              <Skills skills={details.skills} />
+              <Educations educations={details.educations} />
               <Contact contact={details.contact} />
             </>
           )}

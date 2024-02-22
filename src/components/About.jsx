@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import {
   Avatar,
   Box,
@@ -7,6 +7,7 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
+  CircularProgress,
 } from "@mui/material";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { renderColor } from "../utils/renderColor";
@@ -19,6 +20,7 @@ const About = ({ about }) => {
   const { theme: colorTheme } = useContext(ThemeContext);
 
   const themeColors = renderColor(colorTheme);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const avatarStyle = useMemo(
     () => ({
@@ -56,15 +58,15 @@ const About = ({ about }) => {
   return (
     <Stack
       id="about"
-      direction={{ xs: "column", md: "row" }}
+      direction={{ xs: "column", md: "column" }}
       spacing={2}
       sx={{
         bgcolor: themeColors.background.secondary,
         borderRadius: 2,
         color: themeColors.text.primary,
         textAlign: "justify",
-        alignItems: { xs: "center", md: "flex-start" },
-        justifyContent: { xs: "center", md: "flex-start" },
+        alignItems: { xs: "center", md: "center" },
+        justifyContent: { xs: "center", md: "center" },
         "& > :first-of-type": {
           marginBottom: { xs: 2, md: 0 },
         },
@@ -76,7 +78,19 @@ const About = ({ about }) => {
         p: 2,
       }}
     >
-      <Avatar {...avatarStyle} src={about?.image || '/user.png'} alt={about?.name || "User"} />
+      <Avatar
+        {...avatarStyle}
+        src={about?.image || "/user.png"}
+        alt={about?.name || "User"}
+        onLoad={() => setIsImageLoaded(true)}
+        style={{ display: isImageLoaded ? "block" : "none" }}
+      />
+
+      {!isImageLoaded && (
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress style={{ color: themeColors.text.primary }} />
+        </Box>
+      )}
 
       <Box sx={{ flexGrow: 1, marginLeft: 0, marginRight: 0 }}>
         <Typography
@@ -84,7 +98,7 @@ const About = ({ about }) => {
           color={themeColors.text.secondary}
           fontWeight="500"
           sx={{
-            textAlign: { xs: "center", md: "left" },
+            textAlign: { xs: "center", md: "center" },
             marginBottom: 0,
             paddingBottom: 0,
             fontSize: { xs: "1.1rem", md: "1.3rem" },
@@ -92,7 +106,7 @@ const About = ({ about }) => {
         >
           Hi, I'm {about?.name || "User"} <span className="wave">👋</span>
         </Typography>
-        {(isMobile && about?.socials) && (
+        {isMobile && about?.socials && (
           <SocialMediaIcons
             email={about?.socials?.email}
             github={about?.socials?.github}
@@ -124,7 +138,7 @@ const About = ({ about }) => {
         )}
         <Stack
           direction="row"
-          justifyContent={isMobile ? "center" : "flex-start"}
+          justifyContent={isMobile ? "center" : "center"}
           mt={{ xs: 1, md: 2 }}
         >
           {about?.cv && (
