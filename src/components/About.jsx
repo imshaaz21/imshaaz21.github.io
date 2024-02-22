@@ -80,7 +80,7 @@ const About = ({ about }) => {
     >
       <Avatar
         {...avatarStyle}
-        src={about?.image || "/user.png"}
+        src={about?.image || "user.png"}
         alt={about?.name || "User"}
         onLoad={() => setIsImageLoaded(true)}
         style={{ display: isImageLoaded ? "block" : "none" }}

@@ -35,7 +35,7 @@ const Project = ({ project, maxDescriptionHeight }) => {
           <CardMedia
             component="img"
             height="140"
-            image={project?.image || "/fff.png"}
+            image={project?.image || "fff.png"}
             alt={project?.title}
             loading="lazy"
           />
