@@ -1,9 +1,10 @@
 import React, { useContext, useMemo } from "react";
 import FadeInSection from "../utils/FadeInSection";
-import { Col, Row, Stack } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
 import Skill from "./Skill";
+import { Stack } from "@mui/material";
 
 const Skills = ({ skills }) => {
   const { theme: colorTheme } = useContext(ThemeContext);

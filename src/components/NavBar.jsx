@@ -15,7 +15,14 @@ import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
 
-const pages = ["About", "Experience", "Education", "Projects", "Contact"];
+const pages = [
+  "About",
+  "Experience",
+  "Education",
+  "Projects",
+  "Skills",
+  "Contact",
+];
 
 const NavBar = ({ scrollToSection }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
