@@ -66,16 +66,16 @@ const Skill = ({ skill, maxDescriptionHeight, maxItemHeight }) => {
           <Typography
             variant="subtitle2"
             color={themeColors.text.secondary}
-            sx={{ fontWeight: 100,mb:3 }}
+            sx={{ fontWeight: 100, mb: 3 }}
             height={isMobile ? "auto" : maxDescriptionHeight / 3}
             textAlign="justify"
           >
             {skill?.description}
           </Typography>
-          <Box sx={{ mt: 1 }}>
+          <Box sx={{ pt: 1 }}>
             <Typography
               variant="body2"
-              sx={{ marginLeft: 0, mt: 0.5 }}
+              sx={{ marginLeft: 0}}
               color={themeColors.text.secondary}
               textAlign="justify"
               height={isMobile ? "auto" : maxItemHeight / 3}
