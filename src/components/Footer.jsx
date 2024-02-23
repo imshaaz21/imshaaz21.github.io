@@ -1,5 +1,5 @@
-import { Box, Container, Paper, Typography } from "@mui/material";
-import React, { useContext} from "react";
+import { Box, Container, Link, Paper, Typography } from "@mui/material";
+import React, { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
 
@@ -7,6 +7,9 @@ const Footer = () => {
   const { theme: colorTheme } = useContext(ThemeContext);
 
   const themeColors = renderColor(colorTheme);
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <Paper
       sx={{
@@ -31,7 +34,14 @@ const Footer = () => {
           }}
         >
           <Typography variant="caption" color={themeColors.text.primary}>
-            &copy; 2024 - All rights reserved
+            &copy; {currentYear}{" "}
+            <Link
+              href="https://www.linkedin.com/in/imshaaz"
+              color={themeColors.text.primary}
+            >
+              @imshaaz
+            </Link>{" "}
+            All Rights Reserved.
           </Typography>
         </Box>
       </Container>
