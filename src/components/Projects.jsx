@@ -45,7 +45,7 @@ const Projects = ({ projects }) => {
         </h2>
         <Row xs={1} md={2} lg={3} className="justify-content-center m-1">
           {projects?.map((project, index) => (
-            <Col className="mt-3 d-flex justify-content-center" key={index}>
+            <Col className="mt-4 d-flex justify-content-center" key={index}>
               <Project
                 project={project}
                 maxDescriptionHeight={maxDescriptionHeight}

@@ -14,9 +14,9 @@ import { renderColor } from "../utils/renderColor";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
 import FadeInSection from "../utils/FadeInSection";
 
-const Skill = ({ skill, maxDescriptionHeight }) => {
+const Skill = ({ skill, maxDescriptionHeight, maxItemHeight }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const { theme: colorTheme } = useContext(ThemeContext);
   const themeColors = renderColor(colorTheme);
 
@@ -66,7 +66,7 @@ const Skill = ({ skill, maxDescriptionHeight }) => {
           <Typography
             variant="subtitle2"
             color={themeColors.text.secondary}
-            sx={{ fontWeight: 100 }}
+            sx={{ fontWeight: 100,mb:3 }}
             height={isMobile ? "auto" : maxDescriptionHeight / 3}
             textAlign="justify"
           >
@@ -78,6 +78,7 @@ const Skill = ({ skill, maxDescriptionHeight }) => {
               sx={{ marginLeft: 0, mt: 0.5 }}
               color={themeColors.text.secondary}
               textAlign="justify"
+              height={isMobile ? "auto" : maxItemHeight / 3}
             >
               {skill?.items?.join(" | ")}
             </Typography>

@@ -15,6 +15,13 @@ const Skills = ({ skills }) => {
     return Math.max(...skills.map((skill) => skill?.description?.length ?? 0));
   }, [skills]);
 
+  const maxItemHeight = useMemo(() => {
+    if (!skills) return 0;
+    return Math.max(
+      ...skills.map((skill) => skill?.items?.join(" | ")?.length ?? 0)
+    );
+  });
+
   return (
     <FadeInSection>
       <Stack
@@ -42,10 +49,11 @@ const Skills = ({ skills }) => {
         </h2>
         <Row xs={1} md={2} lg={3} className="justify-content-center m-1">
           {skills?.map((skill, index) => (
-            <Col className="mt-3 d-flex justify-content-center" key={index}>
+            <Col className="mt-4 d-flex justify-content-center" key={index}>
               <Skill
                 skill={skill}
                 maxDescriptionHeight={maxDescriptionHeight}
+                maxItemHeight={maxItemHeight}
               />
             </Col>
           ))}

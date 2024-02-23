@@ -13,12 +13,11 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import React, { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 import FadeInSection from "../utils/FadeInSection";
 
 const Project = ({ project, maxDescriptionHeight }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const { theme: colorTheme } = useContext(ThemeContext);
 
   const themeColors = renderColor(colorTheme);
