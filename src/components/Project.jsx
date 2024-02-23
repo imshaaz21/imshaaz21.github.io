@@ -15,9 +15,9 @@ import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
 import FadeInSection from "../utils/FadeInSection";
 
-const Project = ({ project, maxDescriptionHeight }) => {
+const Project = ({ project, maxDescriptionHeight,maxTitleHeight }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const { theme: colorTheme } = useContext(ThemeContext);
 
   const themeColors = renderColor(colorTheme);
@@ -50,6 +50,7 @@ const Project = ({ project, maxDescriptionHeight }) => {
               variant="h6"
               component="div"
               color={themeColors.text.primary}
+              height={isMobile ? "auto" : maxDescriptionHeight / 6}
               align="left"
             >
               {project?.title}
@@ -57,7 +58,7 @@ const Project = ({ project, maxDescriptionHeight }) => {
             <Typography
               variant="body2"
               color={themeColors.text.secondary}
-              height={isMobile ? "auto" : maxDescriptionHeight / 3}
+              height={isMobile ? "auto" : maxDescriptionHeight / 2.5}
             >
               {project?.description}
             </Typography>

@@ -18,6 +18,11 @@ const Projects = ({ projects }) => {
     );
   }, [projects]);
 
+  const maxTitleHeight = useMemo(() => {
+    if (!projects) return 0;
+    return Math.max(...projects.map((project) => project?.title?.length ?? 0));
+  }, [projects]);
+
   return (
     <FadeInSection>
       <Stack
@@ -49,6 +54,7 @@ const Projects = ({ projects }) => {
               <Project
                 project={project}
                 maxDescriptionHeight={maxDescriptionHeight}
+                maxTitleHeight={maxTitleHeight}
               />
             </Col>
           ))}

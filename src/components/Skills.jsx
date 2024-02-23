@@ -20,7 +20,7 @@ const Skills = ({ skills }) => {
     return Math.max(
       ...skills.map((skill) => skill?.items?.join(" | ")?.length ?? 0)
     );
-  });
+  },[skills]);
 
   return (
     <FadeInSection>
