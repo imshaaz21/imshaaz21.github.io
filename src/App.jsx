@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { scroller } from "react-scroll";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Box } from "@mui/material";
+import { Box, LinearProgress } from "@mui/material";
 import Meta from "./components/Meta";
 import Navbar from "./components/NavBar";
 import About from "./components/About";
@@ -20,6 +20,7 @@ function App() {
   const { theme } = useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [showScrollTopButton, setShowScrollTopButton] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     document.body.classList.remove("light-theme", "dark-theme");
@@ -37,6 +38,10 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+
       if (window.scrollY > 0) {
         setShowScrollTopButton(true);
       } else {
@@ -65,7 +70,10 @@ function App() {
         </Box>
       ) : (
         <>
-          <Navbar scrollToSection={scrollToSection} />
+          <Navbar
+            scrollToSection={scrollToSection}
+            scrollProgress={scrollProgress}
+          />
           {details && (
             <>
               <Meta meta={details.meta} />

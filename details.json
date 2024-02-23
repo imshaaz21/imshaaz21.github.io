@@ -114,10 +114,11 @@
     {
       "category": "Programming Languages",
       "image": "programming-languages.png",
-      "description": "Proficient in various programming languages with hands-on experience in developing diverse applications and projects.",
+      "description": "Skilled in multiple programming languages, adept at applying OOP principles across frameworks and domains to develop diverse applications and projects.",
       "items": [
         "Python",
         "JavaScript",
+        "TypeScript",
         "Java",
         "C#",
         "C",
@@ -131,7 +132,7 @@
       "image": "web-technologies.png",
       "description": "Experienced in front-end and back-end development, crafting dynamic and interactive web applications. Proficient in various web technologies and frameworks.",
       "items": [
-        "React",
+        "React.js",
         "Node.js",
         "Express.js",
         "SpringBoot",

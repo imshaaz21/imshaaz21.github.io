@@ -39,7 +39,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/imshaaz"
               color={themeColors.text.primary}
             >
-              @imshaaz
+              @imshaaz.
             </Link>{" "}
             All Rights Reserved.
           </Typography>

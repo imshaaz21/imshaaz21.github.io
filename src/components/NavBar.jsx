@@ -14,6 +14,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
+import { LinearProgress } from "@mui/material";
 
 const pages = [
   "About",
@@ -24,7 +25,7 @@ const pages = [
   "Contact",
 ];
 
-const NavBar = ({ scrollToSection }) => {
+const NavBar = ({ scrollToSection, scrollProgress }) => {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [themeChanged, setThemeChanged] = useState(false);
@@ -171,6 +172,18 @@ const NavBar = ({ scrollToSection }) => {
           </Box>
         </Toolbar>
       </Container>
+      <LinearProgress
+        variant="determinate"
+        value={scrollProgress}
+        color="primary"
+        sx={{
+          backgroundColor: themeColors.background.primary,
+          height: 2,
+          "& .MuiLinearProgress-bar": {
+            backgroundColor: themeColors.button.active,
+          },
+        }}
+      />
     </AppBar>
   );
 };
