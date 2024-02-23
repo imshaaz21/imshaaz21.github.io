@@ -14,6 +14,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
 import { renderColor } from "../utils/renderColor";
 import { LazyLoadComponent } from "react-lazy-load-image-component";
+import FadeInSection from "../utils/FadeInSection";
 
 const Project = ({ project, maxDescriptionHeight }) => {
   const theme = useTheme();
@@ -27,57 +28,57 @@ const Project = ({ project, maxDescriptionHeight }) => {
   };
 
   return (
-    <Card
-      sx={{ maxWidth: 345, backgroundColor: themeColors.background.primary }}
-    >
-      <CardActionArea>
-        <LazyLoadComponent threshold={10}>
+    <FadeInSection>
+      <Card
+        sx={{ maxWidth: 345, backgroundColor: themeColors.background.primary }}
+      >
+        <CardActionArea>
           <CardMedia
             component="img"
             height="140"
             image={project?.image || "fff.png"}
             alt={project?.title}
-            loading="lazy"
+            loading="eager"
           />
-        </LazyLoadComponent>
-        <CardContent
-          sx={{ backgroundColor: themeColors.background.secondary }}
-          onClick={() => {
-            window.open(project?.link || "/", "_blank");
-          }}
-        >
-          <Typography
-            gutterBottom
-            variant="h6"
-            component="div"
-            color={themeColors.text.primary}
-            align="left"
+          <CardContent
+            sx={{ backgroundColor: themeColors.background.secondary }}
+            onClick={() => {
+              window.open(project?.link || "/", "_blank");
+            }}
           >
-            {project?.title}
-          </Typography>
-          <Typography
-            variant="body2"
-            color={themeColors.text.secondary}
-            height={isMobile ? "auto" : maxDescriptionHeight / 3}
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="div"
+              color={themeColors.text.primary}
+              align="left"
+            >
+              {project?.title}
+            </Typography>
+            <Typography
+              variant="body2"
+              color={themeColors.text.secondary}
+              height={isMobile ? "auto" : maxDescriptionHeight / 3}
+            >
+              {project?.description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions sx={{ backgroundColor: themeColors.background.tertiary }}>
+          <IconButton
+            aria-label="github"
+            onClick={() => {
+              oneClickHandler(project?.link);
+            }}
           >
-            {project?.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions sx={{ backgroundColor: themeColors.background.tertiary }}>
-        <IconButton
-          aria-label="github"
-          onClick={() => {
-            oneClickHandler(project?.link);
-          }}
-        >
-          <GitHubIcon
-            fontSize="medium"
-            style={{ color: themeColors.button.primary }}
-          />
-        </IconButton>
-      </CardActions>
-    </Card>
+            <GitHubIcon
+              fontSize="medium"
+              style={{ color: themeColors.button.primary }}
+            />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </FadeInSection>
   );
 };
 

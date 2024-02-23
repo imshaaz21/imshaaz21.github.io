@@ -18,9 +18,9 @@ import { renderColor } from "../utils/renderColor";
 const pages = [
   "About",
   "Experience",
-  "Education",
-  "Projects",
   "Skills",
+  "Projects",
+  "Education",
   "Contact",
 ];
 

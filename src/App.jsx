@@ -19,6 +19,7 @@ import Skills from "./components/Skills";
 function App() {
   const { theme } = useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
+  const [showScrollTopButton, setShowScrollTopButton] = useState(false);
 
   useEffect(() => {
     document.body.classList.remove("light-theme", "dark-theme");
@@ -32,6 +33,21 @@ function App() {
       setLoading(false);
     }, 1000);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShowScrollTopButton(true);
+      } else {
+        setShowScrollTopButton(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const scrollToSection = (section) => {
@@ -55,14 +71,16 @@ function App() {
               <Meta meta={details.meta} />
               <About about={details.about} />
               <Experiences experiences={details.experiences} />
-              <Projects projects={details.projects} />
               <Skills skills={details.skills} />
+              <Projects projects={details.projects} />
               <Educations educations={details.educations} />
               <Contact contact={details.contact} />
             </>
           )}
           <Footer />
-          <ScrollToTopButton onClick={scrollToSection} />
+          {showScrollTopButton && (
+            <ScrollToTopButton onClick={scrollToSection} />
+          )}
         </>
       )}
     </>
