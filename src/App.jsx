@@ -77,12 +77,12 @@ function App() {
           {details && (
             <>
               <Meta meta={details.meta} />
-              <About about={details.about} />
-              <Experiences experiences={details.experiences} />
-              <Skills skills={details.skills} />
-              <Projects projects={details.projects} />
-              <Educations educations={details.educations} />
-              <Contact contact={details.contact} />
+              <About about={details.about} id="about"/>
+              <Experiences experiences={details.experiences} id="experience"/>
+              <Skills skills={details.skills} id="skills"/>
+              <Projects projects={details.projects} id="projects"/>
+              <Educations educations={details.educations} id="education"/>
+              <Contact contact={details.contact} id="contact"/>
             </>
           )}
           <Footer />

@@ -113,6 +113,7 @@ const NavBar = ({ scrollToSection, scrollProgress }) => {
                   onClickCapture={() =>
                     scrollToSection(page.toLocaleLowerCase())
                   }
+                  id={`#${page.toLocaleLowerCase()}`}
                 >
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
@@ -128,6 +129,7 @@ const NavBar = ({ scrollToSection, scrollProgress }) => {
                   handleCloseNavMenu(e);
                   scrollToSection(page.toLocaleLowerCase());
                 }}
+                // id={$`#${page.toLocaleLowerCase()}`}
                 sx={{
                   my: 2,
                   color: themeColors.text.primary,

@@ -21,6 +21,12 @@
   },
   "experiences": [
     {
+      "position": "Software Engineer",
+      "workplace": "Cloud Solutions International, Colombo, Sri Lanka",
+      "date": "Jun 2024 - Present",
+      "descriptions": []
+    },
+    {
       "position": "Data Science Intern",
       "workplace": "Dialog Axiata PLC, Colombo, Sri Lanka",
       "date": "Jan 2023 - Jun 2023",
@@ -54,29 +60,34 @@
       "field": "BSc. (Hons) in Computer Science and Engineering",
       "place": "University of Moratuwa, Sri Lanka",
       "date": "2020 - 2024",
-      "descriptions": ["Dean's List: 2nd semester"]
+      "descriptions": []
     },
     {
       "field": "GCE Advanced Level",
       "place": "Kekunagolla National School, Kurunegala, Sri Lanka",
       "date": "2018",
       "descriptions": [
-        "Stream: Physical Science",
-        "Results: 2A's and 1B, Z-Score: 1.9634"
+        "Stream: Physical Science"
       ]
-    },
-    {
-      "field": "GCE Ordinary Level",
-      "place": "Minhath National School, Dikwella, Sri Lanka",
-      "date": "2015",
-      "descriptions": []
     }
   ],
   "projects": [
     {
+      "title": "Domain Specific Object Detection",
+      "description": "In outdoor computer vision, changing lighting and weather affect model performance. Training a single model for all conditions increases complexity and size. A better approach for resource-constrained environments is training separate models for different lighting conditions and switching between them adaptively, reducing resource use and likely improving accuracy.",
+      "image": "https://www.researchgate.net/publication/361431652/figure/fig1/AS:1182635082690571@1658973584077/Real-time-object-detection-performance-of-deep-YOLOv4-Redmon-and-Farhadi-2017-in-a.jpg",
+      "link": "https://github.com/AKSHILMY/Domain-Specific-Object-Detection"
+    },
+    {
+      "title": "Health Companion App",
+      "description": "Active Aware is a smartphone-based health companion app developed using Flutter. With a focus on holistic health, the app aims to empower users to lead healthier lives by providing insights into their sleep, activity levels, and emotional well-being.",
+      "image": "https://media.licdn.com/dms/image/C4D12AQHmVp_bbNawoQ/article-cover_image-shrink_600_2000/0/1641215225501?e=2147483647&v=beta&t=nyKHS_TLfn73Bw0_wQYzCul8_-WiSl2pWxfT1t9E8e0",
+      "link": "https://github.com/imshaaz21/Health_Companion_App"
+    },
+    {
       "title": "The Bank App",
       "description": "TheBankApp extends banking reach with mobile devices, enabling essential services like withdrawals, deposits, and balance inquiries through local agents. It syncs transactions with a centralized database, supports account management, interest calculation, and offers fixed deposit plans. User-friendly interfaces enhance accessibility.",
-      "image": "projects/micro-bank.webp",
+      "image": "https://130e178e8f8ba617604b-8aedd782b7d22cfe0d1146da69a52436.ssl.cf1.rackcdn.com/mobile-banking-apps-riddled-vulnerabilities-report-showcase_image-6-a-14453.jpg",
       "link": "https://github.com/imshaaz21/TheBankApp"
     },
     {
@@ -117,12 +128,12 @@
       "description": "Skilled in multiple programming languages, adept at applying OOP principles across frameworks and domains to develop diverse applications and projects.",
       "items": [
         "Python",
+        "Java",
+        "C",
+        "C#",
+        "C++",
         "JavaScript",
         "TypeScript",
-        "Java",
-        "C#",
-        "C",
-        "C++",
         "Dart",
         "VHDL"
       ]
@@ -147,7 +158,10 @@
       "category": "Mobile Development",
       "image": "mobile-technologies.png",
       "description": "Skilled in mobile app development for both native Android and cross-platform environments, ensuring optimal performance and user experience.",
-      "items": ["ReactNative", "Flutter", "Android Studio"]
+      "items": [
+        "ReactNative",
+        "Flutter"
+      ]
     },
     {
       "category": "Machine Learning and AI",
@@ -158,24 +172,31 @@
         "Keras",
         "PyTorch",
         "Scikit-learn",
-        "OpenCV",
-        "FaceBook Prophet",
-        "Pandas",
-        "Numpy",
-        "Matplotlib"
+        "OpenCV"
       ]
     },
     {
       "category": "Databases",
       "image": "databases.png",
       "description": "Skilled in database management systems, including SQL, NoSQL and embedded databases.",
-      "items": ["MongoDB", "MySQL", "PostgreSQL", "SQLite"]
+      "items": [
+        "MongoDB",
+        "MySQL",
+        "PostgreSQL",
+        "SQLite"
+      ]
     },
     {
       "category": "Tools and Platforms",
       "image": "tools-and-platforms.png",
       "description": "Proficient in various tools and platforms, ensuring seamless development and deployment of applications.",
-      "items": ["Git", "Docker", "Linux"]
+      "items": [
+        "Kubernetes",
+        "Docker",
+        "Kafka",
+        "Git",
+        "Linux"
+      ]
     }
   ],
   "contact": {
