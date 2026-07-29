@@ -130,11 +130,11 @@ const NavBar = ({ scrollToSection, scrollProgress, about, socials, activeSection
         >
           {theme === "dark" ? (
             <>
-              <Sun size={14} /> light mode
+              <Sun size={14} /> <span>light mode</span>
             </>
           ) : (
             <>
-              <Moon size={14} /> dark mode
+              <Moon size={14} /> <span>dark mode</span>
             </>
           )}
         </button>

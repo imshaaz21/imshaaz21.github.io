@@ -774,6 +774,10 @@ button {
 }
 
 .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
   align-self: flex-start;
   background: var(--bg-panel);
   border: 1px solid var(--border);
