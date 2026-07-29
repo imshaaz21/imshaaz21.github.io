@@ -5,11 +5,7 @@
       <stop offset="100%" stop-color="#34d399"/>
     </linearGradient>
   </defs>
-  <!-- Dark Rounded Square Container -->
-  <rect width="64" height="64" rx="18" fill="#11151b"/>
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="none" stroke="url(#profileGrad)" stroke-width="2.5" stroke-opacity="0.6"/>
-  <!-- Profile Avatar Head -->
-  <circle cx="32" cy="22.5" r="9.5" fill="url(#profileGrad)"/>
-  <!-- Profile Avatar Body / Shoulders -->
-  <path d="M15 49.5 C15 38.5, 22 35.5, 32 35.5 C42 35.5, 49 38.5, 49 49.5 Z" fill="url(#profileGrad)"/>
+  <!-- Transparent Background: Profile Avatar Silhouette -->
+  <circle cx="32" cy="20" r="12" fill="url(#profileGrad)"/>
+  <path d="M12 56 C12 42, 20 38, 32 38 C44 38, 52 42, 52 56 Z" fill="url(#profileGrad)"/>
 </svg>
