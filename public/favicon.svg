@@ -1,8 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="16" fill="#11151b"/>
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.4"/>
-  <!-- Terminal Prompt Symbol '>' -->
-  <path d="M18 22L28 32L18 42" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- Terminal Cursor '_' -->
-  <line x1="33" y1="42" x2="46" y2="42" stroke="#34d399" stroke-width="5" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="profileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+  <!-- Dark Rounded Square Container -->
+  <rect width="64" height="64" rx="18" fill="#11151b"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="none" stroke="url(#profileGrad)" stroke-width="2.5" stroke-opacity="0.6"/>
+  <!-- Profile Avatar Head -->
+  <circle cx="32" cy="22.5" r="9.5" fill="url(#profileGrad)"/>
+  <!-- Profile Avatar Body / Shoulders -->
+  <path d="M15 49.5 C15 38.5, 22 35.5, 32 35.5 C42 35.5, 49 38.5, 49 49.5 Z" fill="url(#profileGrad)"/>
 </svg>
