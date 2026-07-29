@@ -26,6 +26,20 @@ function App() {
     );
   }, [theme]);
 
+  const scrollToSection = useCallback((sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const yOffset = -30;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      if (window.history.replaceState) {
+        window.history.replaceState(null, "", `#${sectionId}`);
+      }
+      setActiveSection(sectionId);
+    }
+  }, []);
+
   useEffect(() => {
     let ticking = false;
     const sectionIds = [
@@ -48,24 +62,32 @@ function App() {
           setScrollProgress(progress);
           setShowScrollTopButton(scrollY > 250);
 
-          const isAtBottom =
-            scrollY > 200 &&
-            window.innerHeight + scrollY >=
-              document.documentElement.scrollHeight - 40;
-
-          if (isAtBottom) {
-            setActiveSection("contact");
+          if (scrollY < 80) {
+            setActiveSection("about");
           } else {
-            const scrollPosition = scrollY + 140;
-            let currentSection = "about";
-            for (let i = sectionIds.length - 1; i >= 0; i--) {
-              const el = document.getElementById(sectionIds[i]);
-              if (el && el.offsetTop <= scrollPosition) {
-                currentSection = sectionIds[i];
-                break;
+            const isAtBottom =
+              scrollY > 200 &&
+              window.innerHeight + scrollY >=
+                document.documentElement.scrollHeight - 20;
+
+            if (isAtBottom) {
+              setActiveSection("contact");
+            } else {
+              const scrollPosition = scrollY + 160;
+              let currentSection = "about";
+              for (let i = sectionIds.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sectionIds[i]);
+                if (el) {
+                  const sectionTop =
+                    el.getBoundingClientRect().top + window.scrollY;
+                  if (sectionTop <= scrollPosition) {
+                    currentSection = sectionIds[i];
+                    break;
+                  }
+                }
               }
+              setActiveSection(currentSection);
             }
-            setActiveSection(currentSection);
           }
 
           ticking = false;
@@ -79,15 +101,17 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = useCallback((sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const yOffset = -30;
-      const y =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+  useEffect(() => {
+    if (window.location.hash) {
+      const initialSection = window.location.hash.substring(1);
+      const el = document.getElementById(initialSection);
+      if (el) {
+        setTimeout(() => {
+          scrollToSection(initialSection);
+        }, 150);
+      }
     }
-  }, []);
+  }, [scrollToSection]);
 
   return (
     <>

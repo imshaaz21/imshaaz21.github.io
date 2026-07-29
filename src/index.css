@@ -750,14 +750,27 @@ button {
   gap: 1.1rem;
 }
 
-.social-icons a {
+.social-icons a,
+.share-icon-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   color: var(--text-muted);
   transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.social-icons a:hover {
+.social-icons a:hover,
+.share-icon-btn:hover {
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+.share-icon-btn .copied-icon {
+  color: #10b981;
 }
 
 .theme-toggle {

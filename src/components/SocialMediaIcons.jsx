@@ -1,6 +1,21 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { useState } from "react";
+import { Github, Linkedin, Mail, Share2, Check } from "lucide-react";
 
 const SocialMediaIcons = ({ github, linkedin, email }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(window.location.href);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2200);
+      }
+    } catch (err) {
+      console.error("Failed to copy link:", err);
+    }
+  };
+
   return (
     <div className="social-icons">
       {email && (
@@ -30,6 +45,18 @@ const SocialMediaIcons = ({ github, linkedin, email }) => {
           <Linkedin size={18} strokeWidth={1.75} />
         </a>
       )}
+      <button
+        onClick={handleShare}
+        className="share-icon-btn"
+        aria-label="Share profile link"
+        title={copied ? "Link Copied!" : "Share / Copy link"}
+      >
+        {copied ? (
+          <Check size={18} strokeWidth={1.75} className="copied-icon" />
+        ) : (
+          <Share2 size={18} strokeWidth={1.75} />
+        )}
+      </button>
     </div>
   );
 };

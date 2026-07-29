@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Shanaaz Ahamed | Software Engineer",
-    "description": "Software Engineer specializing in backend systems and cloud infrastructure. Currently working on a large-scale Health Information System (HIS) deployed across Saudi Arabia and the Middle East.",
-    "keywords": "Shanaaz Ahamed, imshaaz21, Software Engineer, Backend, Cloud Infrastructure, Kubernetes, Spring Boot, Keycloak, HIS, Portfolio",
+    "description": "Dedicated Software Engineer proficient in Java, Python, JavaScript, Spring Boot, Angular, and Kubernetes. Currently building full-stack features and automated release pipelines for VIDA4 Health Information System (HIS).",
+    "keywords": "Shanaaz Ahamed, imshaaz21, Software Engineer, Backend Engineer, Cloud Infrastructure, Kubernetes, Spring Boot, Java, Angular, Keycloak, HIS, Portfolio",
     "siteName": "Shanaaz Ahamed",
     "url": "https://imshaaz21.github.io",
     "image": "/my-image.png",
@@ -13,34 +13,34 @@
     "title": "Software Engineer",
     "location": "Colombo, Sri Lanka",
     "image": "/my-image.png",
-    "description": "Software Engineer specializing in backend systems and cloud infrastructure. Currently working as a Software Engineer on VIDA4, a large-scale Health Information System (HIS) deployed across Saudi Arabia and the Middle East, automating release pipelines and hardening Keycloak IAM solution. Pursuing an MSc in Computer Science (Cloud Computing) at the University of Moratuwa, researching non-disruptive autoscaling for stateful Kubernetes workloads.",
+    "description": "Dedicated Software Engineer with a passion for solving complex technical challenges. Proficient in Java, Python, and JavaScript, with expertise in modern frameworks like Spring Boot and Angular, as well as DevOps tools including Docker, Kubernetes, and Liquibase. Currently building full-stack features and automated release pipelines for VIDA4, a widely used Health Information System (HIS) deployed across the Middle East. Upgraded and customized Keycloak IAM solution, and currently pursuing an MSc in Computer Science (Cloud Computing) at the University of Moratuwa.",
     "cv": "/Shanaaz-Ahamed-CV.pdf"
   },
   "socials": {
     "github": "https://github.com/imshaaz21",
     "linkedin": "https://www.linkedin.com/in/imshaaz",
-    "email": "shanaaz.ahd@gmail.com"
+    "email": "shanaazahamed21@gmail.com"
   },
   "experiences": [
     {
       "position": "Software Engineer",
       "workplace": "Cloud Solutions International",
       "place": "Colombo, Sri Lanka",
-      "date": "Jun 2024 - Present",
+      "date": "06/2024 - Present",
       "descriptions": [
-        "Automated the release process for VIDA4, a Health Information System (HIS) used across Saudi Arabia and the Middle East, using Kubernetes, Python and Liquibase to eliminate manual deployment steps and accelerate environment setups.",
-        "Revamped the IAM solution by customizing Keycloak: built custom UI and SPIs to decouple modifications from the core codebase for maintainable future upgrades (Java, React).",
-        "Built full-stack features for the Finance and Administration modules of the VIDA4 platform using Spring Boot and Angular."
+        "Automated the release process for VIDA4, a widely used Health Information System (HIS) across the Middle East, using Kubernetes, Python, and Liquibase to eliminate manual deployment efforts and accelerate release rollouts.",
+        "Upgraded the IAM solution by customizing Keycloak: developed custom UI and SPIs to decouple modifications from the core codebase for maintainable future upgrades (Java, React).",
+        "Developed full-stack features for the Finance and Administration modules of the VIDA4 platform using Spring Boot and Angular."
       ]
     },
     {
       "position": "Data Science Intern",
       "workplace": "Dialog Axiata PLC",
       "place": "Sri Lanka",
-      "date": "Jan 2023 - Jul 2023",
+      "date": "01/2023 - 07/2023",
       "descriptions": [
-        "Built an MDT data processing and visualization web application (React, Python) with the Network Planning and Access Planning teams.",
-        "Developed an anomaly detection model using Facebook's Prophet library to flag anomalies in network data."
+        "Developed an MDT Data Processing & Visualization web-based application (ReactJS, Python, JavaScript).",
+        "Built data models for network performance monitoring and anomaly detection."
       ]
     }
   ],
@@ -48,11 +48,11 @@
     {
       "field": "MSc in Computer Science",
       "place": "University of Moratuwa, Sri Lanka",
-      "date": "2025 - Present",
+      "date": "01/2025 - Present",
       "descriptions": ["Specialisation in Cloud Computing"]
     },
     {
-      "field": "BSc (Hons) in Computer Science and Engineering",
+      "field": "BSc (Hons) in Engineering Specialised in Computer Science and Engineering",
       "place": "University of Moratuwa, Sri Lanka",
       "date": "2020 - 2024",
       "descriptions": ["Graduated with a CGPA of 3.63 / 4.2"]
@@ -60,8 +60,8 @@
   ],
   "projects": [
     {
-      "title": "Domain-Specific Object Detection",
-      "description": "Final year research project: Engineered a dynamic model-switching mechanism that automatically adapts to changing environmental domains (lighting, weather), combined with deep learning model pruning & quantization for resource-constrained edge deployments.",
+      "title": "Enhancing Outdoor Computer Vision in Resource-Constrained Environments",
+      "description": "Final year research project: Engineered a dynamic model-switching mechanism that automatically adapts to changing environmental domains (lighting, weather), combined with deep learning model pruning & quantization for edge deployment.",
       "image": "https://www.researchgate.net/publication/361431652/figure/fig1/AS:1182635082690571@1658973584077/Real-time-object-detection-performance-of-deep-YOLOv4-Redmon-and-Farhadi-2017-in-a.jpg",
       "link": "https://github.com/AKSHILMY/Domain-Specific-Object-Detection"
     },
@@ -92,32 +92,28 @@
   ],
   "skills": [
     {
-      "category": "Languages",
-      "items": ["Java", "Python", "TypeScript", "Dart", "C"]
+      "category": "Programming Languages",
+      "items": ["Java", "Python", "JavaScript", "TypeScript", "Dart", "C"]
     },
     {
-      "category": "Backend",
-      "items": ["Spring Boot", "Django", "Kafka", "REST APIs"]
+      "category": "Frameworks & Libraries",
+      "items": ["Spring Boot", "React", "Angular", "Django", "Flutter"]
     },
     {
-      "category": "Frontend",
-      "items": ["Angular", "React"]
-    },
-    {
-      "category": "Databases",
+      "category": "Databases & Management",
       "items": ["PostgreSQL", "Oracle", "MongoDB"]
+    },
+    {
+      "category": "Tools & DevOps",
+      "items": ["Kubernetes", "Docker", "Liquibase", "Kafka", "ArgoCD", "Linux"]
     },
     {
       "category": "Security & IAM",
       "items": ["Keycloak", "OAuth 2.0", "OpenID Connect"]
-    },
-    {
-      "category": "DevOps & Cloud",
-      "items": ["Linux", "Docker", "Kubernetes", "ArgoCD", "Liquibase"]
     }
   ],
   "contact": {
     "name": "Shanaaz Ahamed",
-    "email": "shanaaz.ahd@gmail.com"
+    "email": "shanaazahamed21@gmail.com"
   }
 }
