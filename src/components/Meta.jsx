@@ -1,4 +1,3 @@
-import React from "react";
 import { Helmet } from "react-helmet-async";
 
 const Meta = ({ meta }) => {
@@ -15,15 +14,12 @@ const Meta = ({ meta }) => {
       <meta property="og:site_name" content={meta?.siteName} />
       <meta
         property="og:image"
-        itemprop="image"
+        itemProp="image"
         content={meta?.image || "/my-image.png"}
       />
       <meta
         name="keywords"
-        content={
-          meta?.keywords ||
-          "portfolio, personal, website, developer, software, engineer, react, node, express, mongodb, javascript, html, css, bootstrap, material-ui, ant-design, react-bootstrap, reactstrap, react-router, react-helmet-async, react-icons, react-toastify, react-modal, react-loader-spinner, react-lazy-load-image-component, react-image-gallery, react-image-magnifiers, react-image-crop, react-dropzone, react-datepicker, react-calendar, react-big-calendar, react-beautiful-dnd, react-animations, react-accordion, react-accessible-accordion"
-        }
+        content={meta?.keywords || "portfolio, software engineer, backend, cloud"}
       />
     </Helmet>
   );

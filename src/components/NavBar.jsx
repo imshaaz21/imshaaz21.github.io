@@ -1,192 +1,145 @@
-import { useContext, useEffect, useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
-import Toolbar from "@mui/material/Toolbar";
-import Tooltip from "@mui/material/Tooltip";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import MenuIcon from "@mui/icons-material/Menu";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import { useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../ThemeContext";
-import { renderColor } from "../utils/renderColor";
-import { LinearProgress } from "@mui/material";
+import SocialMediaIcons from "./SocialMediaIcons";
+import { Sun, Moon } from "lucide-react";
 
-const pages = [
-  "About",
-  "Experience",
-  "Skills",
-  "Projects",
-  "Education",
-  "Contact",
+const sections = [
+  { id: "about", label: "about" },
+  { id: "experience", label: "experience" },
+  { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
+  { id: "education", label: "education" },
+  { id: "contact", label: "contact" },
 ];
 
-const NavBar = ({ scrollToSection, scrollProgress }) => {
-  const [anchorElNav, setAnchorElNav] = useState(null);
-  const [scrolled, setScrolled] = useState(false);
-  const [themeChanged, setThemeChanged] = useState(false);
-
+const NavBar = ({ scrollToSection, scrollProgress, about, socials, activeSection }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
-  const onThemeChange = (mode) => {
-    theme === "dark" ? toggleTheme("light") : toggleTheme("dark");
-    setThemeChanged((prev) => !prev);
-  };
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  const activeMobileTabRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setScrolled(isScrolled);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const themeColors = renderColor(theme);
+    if (activeMobileTabRef.current) {
+      activeMobileTabRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+    }
+  }, [activeSection]);
 
   return (
-    <AppBar
-      id="navbar"
-      position="sticky"
-      sx={{
-        margin: 0,
-        padding: 0,
-        backgroundColor: scrolled
-          ? themeColors.background.secondary
-          : themeColors.background.primary,
-      }}
-    >
-      <Container maxWidth="xl">
-        <Toolbar disableGutters sx={{ py: 0 }}>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", sm: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="menu"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              sx={{
-                ":hover": { color: themeColors.button.active },
-                color: themeColors.text.primary,
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
+    <aside className="sidebar" id="navbar">
+      <div className="sidebar-progress" aria-hidden="true">
+        <span style={{ width: `${scrollProgress}%` }} />
+      </div>
 
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", sm: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  onClickCapture={() =>
-                    scrollToSection(page.toLocaleLowerCase())
-                  }
-                  id={`#${page.toLocaleLowerCase()}`}
-                >
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+      <div className="terminal-window-bar">
+        <div className="terminal-dots" aria-hidden="true">
+          <span className="dot dot-close" />
+          <span className="dot dot-min" />
+          <span className="dot dot-max" />
+        </div>
+        <span className="terminal-title">zsh: shanaaz@dev:~</span>
+      </div>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={(e) => {
-                  handleCloseNavMenu(e);
-                  scrollToSection(page.toLocaleLowerCase());
-                }}
-                // id={$`#${page.toLocaleLowerCase()}`}
-                sx={{
-                  my: 2,
-                  color: themeColors.text.primary,
-                  ":hover": { color: themeColors.button.active },
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+      <div className="sidebar-top">
+        <div className="sidebar-brand">
+          <div className="terminal-prompt">
+            <span className="prompt-user">shanaaz</span>
+            <span className="prompt-at">@</span>
+            <span className="prompt-host">dev</span>
+            <span className="prompt-colon">:</span>
+            <span className="prompt-path">~</span>
+            <span className="prompt-char">$</span>
+            <span className="prompt-command">whoami</span>
+          </div>
+          <h1 className="sidebar-name">{about?.name}</h1>
+          <p className="sidebar-title">
+            <span className="prompt-symbol">❯</span> {about?.title}
+            <span className="terminal-cursor">_</span>
+          </p>
+        </div>
 
-          <Box>
-            <Tooltip title="Change Theme">
-              {theme === "dark" ? (
-                <IconButton
-                  onClick={onThemeChange}
-                  sx={{ p: 0 }}
-                  className={themeChanged ? "animate-icon" : ""}
+        <div className="mobile-header-right">
+          <SocialMediaIcons
+            email={socials?.email}
+            github={socials?.github}
+            linkedin={socials?.linkedin}
+          />
+          <button
+            className="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+          </button>
+        </div>
+
+        <nav className="desktop-nav" aria-label="Section navigation">
+          <ul className="sidebar-nav">
+            {sections.map((section) => {
+              const isActive = activeSection === section.id;
+              return (
+                <li key={section.id}>
+                  <button
+                    onClick={() => scrollToSection(section.id)}
+                    className={`terminal-nav-btn ${isActive ? "active" : ""}`}
+                  >
+                    <span className="prompt-symbol">{isActive ? "❯" : "$"}</span>
+                    <span className="nav-cmd">cd ~/{section.label}</span>
+                    {isActive && <span className="terminal-active-indicator">_</span>}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
+
+      <nav className="mobile-nav" aria-label="Mobile section navigation">
+        <div className="mobile-terminal-bar">
+          <div className="mobile-nav-scroll">
+            {sections.map((section) => {
+              const isActive = activeSection === section.id;
+              return (
+                <button
+                  key={section.id}
+                  ref={isActive ? activeMobileTabRef : null}
+                  onClick={() => scrollToSection(section.id)}
+                  className={`mobile-terminal-tab ${isActive ? "active" : ""}`}
                 >
-                  <LightModeOutlinedIcon
-                    sx={{
-                      color: themeColors.text.primary,
-                      ":hover": { color: themeColors.button.active },
-                    }}
-                  />
-                </IconButton>
-              ) : (
-                <IconButton
-                  onClick={onThemeChange}
-                  sx={{ p: 0 }}
-                  className={themeChanged ? "animate-icon" : ""}
-                >
-                  <DarkModeOutlinedIcon
-                    sx={{
-                      color: themeColors.text.primary,
-                      ":hover": { color: themeColors.button.hover },
-                    }}
-                  />
-                </IconButton>
-              )}
-            </Tooltip>
-          </Box>
-        </Toolbar>
-      </Container>
-      <LinearProgress
-        variant="determinate"
-        value={scrollProgress}
-        color="primary"
-        sx={{
-          backgroundColor: themeColors.background.primary,
-          height: 2,
-          "& .MuiLinearProgress-bar": {
-            backgroundColor: themeColors.button.active,
-          },
-        }}
-      />
-    </AppBar>
+                  <span className="mobile-prompt-symbol">{isActive ? "❯" : "$"}</span>
+                  <span className="mobile-prompt-path">cd ~/{section.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </nav>
+
+      <div className="sidebar-footer">
+        <SocialMediaIcons
+          email={socials?.email}
+          github={socials?.github}
+          linkedin={socials?.linkedin}
+        />
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+        >
+          {theme === "dark" ? (
+            <>
+              <Sun size={14} /> light mode
+            </>
+          ) : (
+            <>
+              <Moon size={14} /> dark mode
+            </>
+          )}
+        </button>
+      </div>
+    </aside>
   );
 };
 

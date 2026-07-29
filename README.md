@@ -1,17 +1,22 @@
-## Portfolio Repository 🚀
+# Portfolio
 
-This repository serves as the foundation for my portfolio. It will showcase my projects, educational background, and skills.
+Source for [imshaaz21.github.io](https://imshaaz21.github.io) - a minimal, single-page portfolio built with React + Vite.
 
-### Running Steps 🏃‍♂️
+## Run locally
 
-To run the project:
+```bash
+npm install
+npm run dev
+```
 
-1. Clone this repository to your local machine.
-2. Navigate to the project directory.
-3. Install dependencies using `npm install`.
-4. Start the development server using `npm run dev`.
-5. Access the application in your browser at the specified `localhost` address.
+## Update content
 
-### Demo 🌐
+All page content (bio, experience, projects, skills, education, contact) lives in **`src/data/content.json`**. Edit that file (via the GitHub web editor, the GitHub mobile app, or locally) and push/commit to `main`. A GitHub Actions workflow (`.github/workflows/deploy.yml`) rebuilds and redeploys the site automatically. No backend, no database, no build step to run by hand.
 
-A live demo of the portfolio is available [here](https://imshaaz21.github.io/) 👀.
+To update your photo or the downloadable CV, replace the file in `public/` (`my-image.png`, `Shanaaz-Ahamed-CV.pdf`). The filenames referenced in `content.json` must match.
+
+**CV note:** the publicly downloadable CV should not include the References section (personal contact details of your references). Keep a separate full version for direct applications.
+
+## Deploy
+
+Deployment is automatic on every push to `main` via GitHub Actions → GitHub Pages. One-time setup required: **Settings → Pages → Source: GitHub Actions**.

@@ -1,137 +1,72 @@
-import React, { useContext, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { Form, Input } from "semantic-ui-react";
-import { ThemeContext } from "../ThemeContext";
-import { renderColor } from "../utils/renderColor";
+import { useState } from "react";
+import { Send, CheckCircle2 } from "lucide-react";
 import FadeInSection from "../utils/FadeInSection";
 
 const Contact = ({ contact }) => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [sent, setSent] = useState(false);
 
-  const [nameError, setNameError] = useState(false);
-  const [messageError, setMessageError] = useState(false);
-
-  const { theme } = useContext(ThemeContext);
-
-  const themeColors = renderColor(theme);
+  const canSend = name.trim() !== "" && message.trim() !== "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!(nameError || messageError)) {
-      setName("");
-      setMessage("");
-      e.target.reset();
-      const subject = "Message from Portfolio Site";
-      const recipient = contact?.email ?? "";
-      const body = `Hi ${
-        contact?.name ?? ""
-      },\n\nI'm reaching out from your portfolio site regarding the following message:\nMessage:\n${message}.\n\nThanks and Regards,\n${name}.`;
-      const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(
-        subject
-      )}&body=${encodeURIComponent(body)}`;
-      window.location.href = mailtoLink;
-      return;
-    }
-  };
+    if (!canSend) return;
 
-  const onNameChange = (e) => {
-    const name = e.target.value;
-    const regex = /^[a-zA-Z\s]*$/;
+    const subject = "Message from Portfolio Site";
+    const body = `Hi ${contact?.name ?? ""},\n\n${message}\n\nThanks,\n${name}`;
+    const mailtoLink = `mailto:${contact?.email ?? ""}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    
+    setSent(true);
+    window.location.href = mailtoLink;
 
-    if (name === "" || !regex.test(name)) {
-      setNameError(true);
-      setName("");
-    } else {
-      setNameError(false);
-      setName(name);
-    }
-  };
-
-  const onMessageChange = (e) => {
-    if (e.target.value === "") {
-      setMessageError(true);
-      setMessage("");
-    } else {
-      setMessageError(false);
-      setMessage(e.target.value);
-    }
+    setTimeout(() => {
+      setSent(false);
+    }, 4000);
   };
 
   return (
     <FadeInSection>
-      <Container className={"mt-5"} id="contact">
-        <h2
-          className={
-            theme === "dark"
-              ? "ui horizontal divider header mt-5 mb-5 text-light"
-              : "ui horizontal divider header mt-5 mb-5 text-dark"
-          }
-        >
-          Contact Me
-        </h2>
-        <Row className="mx-auto justify-content-center">
-          <Col lg={6} className="text-lg-left mb-5">
-            <Form
-              onSubmit={handleSubmit}
-              inverted={theme === "dark" ? true : false}
-            >
-              <Form.Field
-                id="form-input-control-name"
-                control={Input}
-                label={
-                  <label style={{ color: themeColors.text.primary }}>
-                    Name
-                  </label>
-                }
-                placeholder="Eg: John Doe"
-                required
-                onChange={onNameChange}
-                error={
-                  nameError && {
-                    content: "Please enter a valid name",
-                    pointing: "below",
-                  }
-                }
-              />
-              <Form.TextArea
-                id="form-textarea-control-opinion"
-                label={
-                  <label style={{ color: themeColors.text.primary }}>
-                    Message
-                  </label>
-                }
-                placeholder="Enter your message here"
-                required
-                onChange={onMessageChange}
-                error={
-                  messageError && {
-                    content: "Please enter a valid message",
-                    pointing: "below",
-                  }
-                }
-              />
-              <div
-                className="d-flex"
-                style={{ color: themeColors.text.primary }}
-              >
-                <Form.Button
-                  disabled={name === "" || message === ""}
-                  style={{
-                    backgroundColor: themeColors.button.primary,
-                    color: themeColors.text.primary,
-                    ":hover": { backgroundColor: themeColors.button.hover },
-                  }}
-                >
-                  Send <i className="telegram plane icon"></i>
-                </Form.Button>
-              </div>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
+      <section className="section" id="contact">
+        <p className="eyebrow">./send_message.sh</p>
+        <h2>Get in touch</h2>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <label htmlFor="contact-name">Name</label>
+          <input
+            id="contact-name"
+            type="text"
+            placeholder="Your name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <label htmlFor="contact-message">Message</label>
+          <textarea
+            id="contact-message"
+            placeholder="What would you like to say?"
+            required
+            rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button type="submit" disabled={!canSend}>
+            {sent ? (
+              <>
+                Opening Email Client... <CheckCircle2 size={16} strokeWidth={1.75} />
+              </>
+            ) : (
+              <>
+                Send <Send size={16} strokeWidth={1.75} />
+              </>
+            )}
+          </button>
+        </form>
+      </section>
     </FadeInSection>
   );
 };
 
 export default Contact;
+

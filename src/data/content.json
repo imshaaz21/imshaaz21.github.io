@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "title": "Shanaaz Ahamed | Software Engineer",
+    "description": "Software Engineer specializing in backend systems and cloud infrastructure. Currently working on a large-scale Health Information System (HIS) deployed across Saudi Arabia and the Middle East.",
+    "keywords": "Shanaaz Ahamed, imshaaz21, Software Engineer, Backend, Cloud Infrastructure, Kubernetes, Spring Boot, Keycloak, HIS, Portfolio",
+    "siteName": "Shanaaz Ahamed",
+    "url": "https://imshaaz21.github.io",
+    "image": "/my-image.png",
+    "type": "website"
+  },
+  "about": {
+    "name": "Shanaaz Ahamed",
+    "title": "Software Engineer",
+    "location": "Colombo, Sri Lanka",
+    "image": "/my-image.png",
+    "description": "Software Engineer specializing in backend systems and cloud infrastructure. Currently working as a Software Engineer on VIDA4, a large-scale Health Information System (HIS) deployed across Saudi Arabia and the Middle East, automating release pipelines and hardening Keycloak IAM solution. Pursuing an MSc in Computer Science (Cloud Computing) at the University of Moratuwa, researching non-disruptive autoscaling for stateful Kubernetes workloads.",
+    "cv": "/Shanaaz-Ahamed-CV.pdf"
+  },
+  "socials": {
+    "github": "https://github.com/imshaaz21",
+    "linkedin": "https://www.linkedin.com/in/imshaaz",
+    "email": "shanaaz.ahd@gmail.com"
+  },
+  "experiences": [
+    {
+      "position": "Software Engineer",
+      "workplace": "Cloud Solutions International",
+      "place": "Colombo, Sri Lanka",
+      "date": "Jun 2024 - Present",
+      "descriptions": [
+        "Automated the release process for VIDA4, a Health Information System (HIS) used across Saudi Arabia and the Middle East, using Kubernetes, Python and Liquibase to eliminate manual deployment steps and accelerate environment setups.",
+        "Revamped the IAM solution by customizing Keycloak: built custom UI and SPIs to decouple modifications from the core codebase for maintainable future upgrades (Java, React).",
+        "Built full-stack features for the Finance and Administration modules of the VIDA4 platform using Spring Boot and Angular."
+      ]
+    },
+    {
+      "position": "Data Science Intern",
+      "workplace": "Dialog Axiata PLC",
+      "place": "Sri Lanka",
+      "date": "Jan 2023 - Jul 2023",
+      "descriptions": [
+        "Built an MDT data processing and visualization web application (React, Python) with the Network Planning and Access Planning teams.",
+        "Developed an anomaly detection model using Facebook's Prophet library to flag anomalies in network data."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "field": "MSc in Computer Science",
+      "place": "University of Moratuwa, Sri Lanka",
+      "date": "2025 - Present",
+      "descriptions": ["Specialisation in Cloud Computing"]
+    },
+    {
+      "field": "BSc (Hons) in Computer Science and Engineering",
+      "place": "University of Moratuwa, Sri Lanka",
+      "date": "2020 - 2024",
+      "descriptions": ["Graduated with a CGPA of 3.63 / 4.2"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Domain-Specific Object Detection",
+      "description": "Final year research project: Engineered a dynamic model-switching mechanism that automatically adapts to changing environmental domains (lighting, weather), combined with deep learning model pruning & quantization for resource-constrained edge deployments.",
+      "image": "https://www.researchgate.net/publication/361431652/figure/fig1/AS:1182635082690571@1658973584077/Real-time-object-detection-performance-of-deep-YOLOv4-Redmon-and-Farhadi-2017-in-a.jpg",
+      "link": "https://github.com/AKSHILMY/Domain-Specific-Object-Detection"
+    },
+    {
+      "title": "Health Companion App",
+      "description": "Active Aware: A Flutter health companion app giving users insight into sleep, activity and emotional wellbeing, aimed at holistic day-to-day health tracking.",
+      "image": "https://media.licdn.com/dms/image/C4D12AQHmVp_bbNawoQ/article-cover_image-shrink_600_2000/0/1641215225501?e=2147483647&v=beta&t=nyKHS_TLfn73Bw0_wQYzCul8_-WiSl2pWxfT1t9E8e0",
+      "link": "https://github.com/imshaaz21/Health_Companion_App"
+    },
+    {
+      "title": "The Bank App",
+      "description": "Extends banking reach to local agents via mobile: withdrawals, deposits and balance inquiries synced to a centralized database, with account management, interest calculation and fixed deposit plans.",
+      "image": "https://130e178e8f8ba617604b-8aedd782b7d22cfe0d1146da69a52436.ssl.cf1.rackcdn.com/mobile-banking-apps-riddled-vulnerabilities-report-showcase_image-6-a-14453.jpg",
+      "link": "https://github.com/imshaaz21/TheBankApp"
+    },
+    {
+      "title": "Crop Monitoring & Smart Agriculture",
+      "description": "Portable device measuring key soil parameters to optimize fertilizer application. Android app (Flutter) visualizes the data, including leaf-disease detection, transmitted over Bluetooth Low Energy from an Arduino + sensor rig.",
+      "image": "https://user-images.githubusercontent.com/77115237/190918463-30444397-b4fa-42d4-a588-f7cb4a0e9d99.png",
+      "link": "https://github.com/imshaaz21/Crop-Monitoring-Smart-Agriculture"
+    },
+    {
+      "title": "Canny Edge Detection from Scratch",
+      "description": "Canny edge detection implemented from first principles in Python with grayscale conversion, Gaussian blur, gradient estimation, non-maximum suppression and dual thresholding, using only NumPy and Matplotlib.",
+      "image": "/projects/cannyEdge.png",
+      "link": "https://github.com/imshaaz21/CannyEdgeDetection"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages",
+      "items": ["Java", "Python", "TypeScript", "Dart", "C"]
+    },
+    {
+      "category": "Backend",
+      "items": ["Spring Boot", "Django", "Kafka", "REST APIs"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["Angular", "React"]
+    },
+    {
+      "category": "Databases",
+      "items": ["PostgreSQL", "Oracle", "MongoDB"]
+    },
+    {
+      "category": "Security & IAM",
+      "items": ["Keycloak", "OAuth 2.0", "OpenID Connect"]
+    },
+    {
+      "category": "DevOps & Cloud",
+      "items": ["Linux", "Docker", "Kubernetes", "ArgoCD", "Liquibase"]
+    }
+  ],
+  "contact": {
+    "name": "Shanaaz Ahamed",
+    "email": "shanaaz.ahd@gmail.com"
+  }
+}

@@ -1,25 +1,42 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
+export const THEME_STYLES = [
+  { id: "terminal", label: "Terminal Zsh" },
+  { id: "minimal", label: "Vercel Dark" },
+  { id: "emerald", label: "Matrix Green" },
+  { id: "nordic", label: "Nordic Slate" },
+  { id: "cyberpunk", label: "Cyberpunk Neon" },
+];
+
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("dark");
+  const [themeStyle, setThemeStyle] = useState(() => {
+    return localStorage.getItem("themeStyle") || "terminal";
+  });
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark";
+  });
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      setTheme(storedTheme);
-    }
-  }, []);
+    localStorage.setItem("themeStyle", themeStyle);
+    localStorage.setItem("theme", theme);
+    document.body.className = `${theme === "dark" ? "dark-theme" : "light-theme"} theme-${themeStyle}`;
+  }, [themeStyle, theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  const changeThemeStyle = (styleId) => {
+    setThemeStyle(styleId);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ theme, toggleTheme, themeStyle, changeThemeStyle }}
+    >
       {children}
     </ThemeContext.Provider>
   );
