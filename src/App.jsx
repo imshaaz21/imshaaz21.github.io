@@ -40,28 +40,32 @@ function App() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
           const totalHeight =
             document.documentElement.scrollHeight - window.innerHeight;
           const progress =
-            totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+            totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
           setScrollProgress(progress);
-          setShowScrollTopButton(window.scrollY > 250);
+          setShowScrollTopButton(scrollY > 250);
 
           const isAtBottom =
-            window.innerHeight + window.scrollY >=
-            document.documentElement.scrollHeight - 40;
+            scrollY > 200 &&
+            window.innerHeight + scrollY >=
+              document.documentElement.scrollHeight - 40;
 
           if (isAtBottom) {
             setActiveSection("contact");
           } else {
-            const scrollPosition = window.scrollY + 140;
+            const scrollPosition = scrollY + 140;
+            let currentSection = "about";
             for (let i = sectionIds.length - 1; i >= 0; i--) {
               const el = document.getElementById(sectionIds[i]);
               if (el && el.offsetTop <= scrollPosition) {
-                setActiveSection(sectionIds[i]);
+                currentSection = sectionIds[i];
                 break;
               }
             }
+            setActiveSection(currentSection);
           }
 
           ticking = false;
