@@ -49,13 +49,17 @@
       "field": "MSc in Computer Science",
       "place": "University of Moratuwa, Sri Lanka",
       "date": "01/2025 - Present",
-      "descriptions": ["Specialisation in Cloud Computing"]
+      "descriptions": [
+        "Specialisation in Cloud Computing"
+      ]
     },
     {
       "field": "BSc (Hons) in Engineering Specialised in Computer Science and Engineering",
       "place": "University of Moratuwa, Sri Lanka",
       "date": "2020 - 2024",
-      "descriptions": ["Graduated with a CGPA of 3.63 / 4.2"]
+      "descriptions": [
+        "Graduated with a CGPA of 3.63 / 4.2"
+      ]
     }
   ],
   "projects": [
@@ -93,23 +97,51 @@
   "skills": [
     {
       "category": "Programming Languages",
-      "items": ["Java", "Python", "JavaScript", "TypeScript", "Dart", "C"]
+      "items": [
+        "Java",
+        "Python",
+        "JavaScript",
+        "TypeScript",
+        "Dart",
+        "C"
+      ]
     },
     {
       "category": "Frameworks & Libraries",
-      "items": ["Spring Boot", "React", "Angular", "Django", "Flutter"]
+      "items": [
+        "Spring Boot",
+        "React",
+        "Angular",
+        "Django",
+        "Flutter"
+      ]
     },
     {
       "category": "Databases & Management",
-      "items": ["PostgreSQL", "Oracle", "MongoDB"]
+      "items": [
+        "PostgreSQL",
+        "Oracle",
+        "MongoDB"
+      ]
     },
     {
       "category": "Tools & DevOps",
-      "items": ["Kubernetes", "Docker", "Liquibase", "Kafka", "ArgoCD", "Linux"]
+      "items": [
+        "Kubernetes",
+        "Docker",
+        "Liquibase",
+        "Kafka",
+        "ArgoCD",
+        "Linux"
+      ]
     },
     {
       "category": "Security & IAM",
-      "items": ["Keycloak", "OAuth 2.0", "OpenID Connect"]
+      "items": [
+        "Keycloak",
+        "OAuth 2.0",
+        "OpenID Connect"
+      ]
     }
   ],
   "contact": {

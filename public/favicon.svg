@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <style>
-    .avatar-icon {
-      fill: #1e293b;
-    }
-    @media (prefers-color-scheme: dark) {
-      .avatar-icon {
+    <style>
+        .avatar-icon {
+        fill: #1e293b;
+        }
+        @media (prefers-color-scheme: dark) {
+        .avatar-icon {
         fill: #f8fafc;
-      }
-    }
-  </style>
-  <!-- Adaptive Profile Avatar Silhouette -->
-  <circle cx="32" cy="21" r="11" class="avatar-icon"/>
-  <path d="M14 54 C14 41, 21 37.5, 32 37.5 C43 37.5, 50 41, 50 54 Z" class="avatar-icon"/>
+        }
+        }
+    </style>
+    <!-- Adaptive Profile Avatar Silhouette -->
+    <circle cx="32" cy="21" r="11" class="avatar-icon"/>
+    <path d="M14 54 C14 41, 21 37.5, 32 37.5 C43 37.5, 50 41, 50 54 Z" class="avatar-icon"/>
 </svg>

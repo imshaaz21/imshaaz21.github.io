@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState, useCallback } from "react";
-import { ThemeContext } from "./ThemeContext";
+import {useCallback, useContext, useEffect, useState} from "react";
+import {ThemeContext} from "./ThemeContext";
 import Meta from "./components/Meta";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
@@ -14,131 +14,131 @@ import CursorGlow from "./components/CursorGlow";
 import content from "./data/content.json";
 
 function App() {
-  const { theme } = useContext(ThemeContext);
-  const [showScrollTopButton, setShowScrollTopButton] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState("about");
+    const {theme} = useContext(ThemeContext);
+    const [showScrollTopButton, setShowScrollTopButton] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
+    const [activeSection, setActiveSection] = useState("about");
 
-  useEffect(() => {
-    document.body.classList.remove("light-theme", "dark-theme");
-    document.body.classList.add(
-      theme === "dark" ? "dark-theme" : "light-theme"
-    );
-  }, [theme]);
+    useEffect(() => {
+        document.body.classList.remove("light-theme", "dark-theme");
+        document.body.classList.add(
+            theme === "dark" ? "dark-theme" : "light-theme"
+        );
+    }, [theme]);
 
-  const scrollToSection = useCallback((sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const yOffset = -30;
-      const y =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-      if (window.history.replaceState) {
-        window.history.replaceState(null, "", `#${sectionId}`);
-      }
-      setActiveSection(sectionId);
-    }
-  }, []);
-
-  useEffect(() => {
-    let ticking = false;
-    const sectionIds = [
-      "about",
-      "experience",
-      "projects",
-      "skills",
-      "education",
-      "contact",
-    ];
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const totalHeight =
-            document.documentElement.scrollHeight - window.innerHeight;
-          const progress =
-            totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
-          setScrollProgress(progress);
-          setShowScrollTopButton(scrollY > 250);
-
-          if (scrollY < 80) {
-            setActiveSection("about");
-          } else {
-            const isAtBottom =
-              scrollY > 200 &&
-              window.innerHeight + scrollY >=
-                document.documentElement.scrollHeight - 20;
-
-            if (isAtBottom) {
-              setActiveSection("contact");
-            } else {
-              const scrollPosition = scrollY + 160;
-              let currentSection = "about";
-              for (let i = sectionIds.length - 1; i >= 0; i--) {
-                const el = document.getElementById(sectionIds[i]);
-                if (el) {
-                  const sectionTop =
-                    el.getBoundingClientRect().top + window.scrollY;
-                  if (sectionTop <= scrollPosition) {
-                    currentSection = sectionIds[i];
-                    break;
-                  }
-                }
-              }
-              setActiveSection(currentSection);
+    const scrollToSection = useCallback((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const yOffset = -30;
+            const y =
+                element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({top: y, behavior: "smooth"});
+            if (window.history.replaceState) {
+                window.history.replaceState(null, "", `#${sectionId}`);
             }
-          }
+            setActiveSection(sectionId);
+        }
+    }, []);
 
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
+    useEffect(() => {
+        let ticking = false;
+        const sectionIds = [
+            "about",
+            "experience",
+            "projects",
+            "skills",
+            "education",
+            "contact",
+        ];
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.scrollY;
+                    const totalHeight =
+                        document.documentElement.scrollHeight - window.innerHeight;
+                    const progress =
+                        totalHeight > 0 ? (scrollY / totalHeight) * 100 : 0;
+                    setScrollProgress(progress);
+                    setShowScrollTopButton(scrollY > 250);
 
-  useEffect(() => {
-    if (window.location.hash) {
-      const initialSection = window.location.hash.substring(1);
-      const el = document.getElementById(initialSection);
-      if (el) {
-        setTimeout(() => {
-          scrollToSection(initialSection);
-        }, 150);
-      }
-    }
-  }, [scrollToSection]);
+                    if (scrollY < 80) {
+                        setActiveSection("about");
+                    } else {
+                        const isAtBottom =
+                            scrollY > 200 &&
+                            window.innerHeight + scrollY >=
+                            document.documentElement.scrollHeight - 20;
 
-  return (
-    <>
-      <Meta meta={content.meta} />
-      <CursorGlow />
-      <div className="layout">
+                        if (isAtBottom) {
+                            setActiveSection("contact");
+                        } else {
+                            const scrollPosition = scrollY + 160;
+                            let currentSection = "about";
+                            for (let i = sectionIds.length - 1; i >= 0; i--) {
+                                const el = document.getElementById(sectionIds[i]);
+                                if (el) {
+                                    const sectionTop =
+                                        el.getBoundingClientRect().top + window.scrollY;
+                                    if (sectionTop <= scrollPosition) {
+                                        currentSection = sectionIds[i];
+                                        break;
+                                    }
+                                }
+                            }
+                            setActiveSection(currentSection);
+                        }
+                    }
 
-        <NavBar
-          scrollToSection={scrollToSection}
-          scrollProgress={scrollProgress}
-          activeSection={activeSection}
-          about={content.about}
-          socials={content.socials}
-        />
-        <main className="main">
-          <About about={content.about} />
-          <Experiences experiences={content.experiences} />
-          <Projects projects={content.projects} />
-          <Skills skills={content.skills} />
-          <Educations educations={content.education} />
-          <Contact contact={content.contact} />
-          <Footer />
-        </main>
-      </div>
-      {showScrollTopButton && <ScrollToTopButton onClick={scrollToSection} />}
-    </>
-  );
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll, {passive: true});
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    useEffect(() => {
+        if (window.location.hash) {
+            const initialSection = window.location.hash.substring(1);
+            const el = document.getElementById(initialSection);
+            if (el) {
+                setTimeout(() => {
+                    scrollToSection(initialSection);
+                }, 150);
+            }
+        }
+    }, [scrollToSection]);
+
+    return (
+        <>
+            <Meta meta={content.meta}/>
+            <CursorGlow/>
+            <div className="layout">
+
+                <NavBar
+                    scrollToSection={scrollToSection}
+                    scrollProgress={scrollProgress}
+                    activeSection={activeSection}
+                    about={content.about}
+                    socials={content.socials}
+                />
+                <main className="main">
+                    <About about={content.about}/>
+                    <Experiences experiences={content.experiences}/>
+                    <Projects projects={content.projects}/>
+                    <Skills skills={content.skills}/>
+                    <Educations educations={content.education}/>
+                    <Contact contact={content.contact}/>
+                    <Footer/>
+                </main>
+            </div>
+            {showScrollTopButton && <ScrollToTopButton onClick={scrollToSection}/>}
+        </>
+    );
 }
 
 export default App;

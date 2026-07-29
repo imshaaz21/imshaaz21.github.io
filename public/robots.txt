@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://imshaaz21.github.io/sitemap.xml
