@@ -1,7 +1,7 @@
 import {useContext, useEffect, useRef} from "react";
 import {ThemeContext} from "../ThemeContext";
 import SocialMediaIcons from "./SocialMediaIcons";
-import {Moon, Search, Sun, Terminal} from "lucide-react";
+import {Moon, Sun, Terminal} from "lucide-react";
 
 const sections = [
     {id: "about", label: "about"},
@@ -88,20 +88,6 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                         title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
                     >
                         {theme === "dark" ? <Sun size={15}/> : <Moon size={15}/>}
-                    </button>
-                </div>
-
-                <div className="sidebar-cmd-wrapper">
-                    <button
-                        className="sidebar-search-btn"
-                        onClick={onOpenCmdPalette}
-                        title="Open Interactive Terminal (Ctrl+K or /)"
-                    >
-                        <span className="search-btn-left">
-                            <Search size={13}/>
-                            <span>search / commands</span>
-                        </span>
-                        <kbd className="search-btn-kbd">Ctrl+K</kbd>
                     </button>
                 </div>
 
