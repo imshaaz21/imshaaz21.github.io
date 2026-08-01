@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Check, Github, Linkedin, Mail, Share2} from "lucide-react";
 
-const SocialMediaIcons = ({github, linkedin, email}) => {
+const SocialMediaIcons = ({github, linkedin, email, onToast}) => {
     const [copied, setCopied] = useState(false);
 
     const handleShare = async () => {
@@ -9,6 +9,7 @@ const SocialMediaIcons = ({github, linkedin, email}) => {
             if (navigator.clipboard) {
                 await navigator.clipboard.writeText(window.location.href);
                 setCopied(true);
+                if (onToast) onToast("Link copied to clipboard!");
                 setTimeout(() => setCopied(false), 2200);
             }
         } catch (err) {

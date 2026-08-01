@@ -1325,9 +1325,14 @@ button {
     box-shadow: 0 0 0 3px rgba(217, 130, 43, 0.15);
 }
 
-.contact-form button {
-    align-self: flex-start;
+.contact-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin-top: 1.1rem;
+}
+
+.btn-send {
     display: inline-flex;
     align-items: center;
     gap: 0.5em;
@@ -1342,16 +1347,118 @@ button {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact-form button:hover:not(:disabled) {
+.btn-send:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px -4px rgba(217, 130, 43, 0.4);
 }
 
-.contact-form button:disabled {
+.btn-send:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     background: none;
     color: var(--accent);
+}
+
+.btn-clear {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-clear:hover:not(:disabled) {
+    border-color: var(--text-muted);
+    color: var(--text);
+}
+
+.btn-clear:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Toast notification */
+.toast-notification {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    animation: toast-slide-up 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toast-slide-up {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 12px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.toast-icon {
+    color: #4eb976;
+}
+
+.toast-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.1rem;
+    margin-left: 0.2rem;
+}
+
+.toast-close:hover {
+    color: var(--text);
+}
+
+/* Global circular round button touch & focus overrides */
+.theme-toggle-btn,
+.share-icon-btn,
+.social-icons a,
+.scroll-top-button {
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none;
+    -webkit-user-select: none;
+    outline: none !important;
+}
+
+.theme-toggle-btn:focus-visible,
+.share-icon-btn:focus-visible,
+.social-icons a:focus-visible,
+.scroll-top-button:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent) !important;
 }
 
 /* ---------------------------------------------------------------

@@ -12,7 +12,7 @@ const sections = [
     {id: "contact", label: "contact"},
 ];
 
-const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalette}) => {
+const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalette, onToast}) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const activeMobileTabRef = useRef(null);
 
@@ -72,6 +72,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                         email={socials?.email}
                         github={socials?.github}
                         linkedin={socials?.linkedin}
+                        onToast={onToast}
                     />
                     <button
                         className="theme-toggle-btn"
@@ -138,6 +139,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                     email={socials?.email}
                     github={socials?.github}
                     linkedin={socials?.linkedin}
+                    onToast={onToast}
                 />
                 <button
                     className="theme-toggle"

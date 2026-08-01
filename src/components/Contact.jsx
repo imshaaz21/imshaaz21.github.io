@@ -1,13 +1,20 @@
 import {useState} from "react";
-import {CheckCircle2, Send} from "lucide-react";
+import {CheckCircle2, RotateCcw, Send} from "lucide-react";
 import FadeInSection from "../utils/FadeInSection";
 
-const Contact = ({contact}) => {
+const Contact = ({contact, onToast}) => {
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
     const [sent, setSent] = useState(false);
 
     const canSend = name.trim() !== "" && message.trim() !== "";
+    const hasInput = name !== "" || message !== "";
+
+    const handleClear = () => {
+        setName("");
+        setMessage("");
+        if (onToast) onToast("Contact form cleared");
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +27,7 @@ const Contact = ({contact}) => {
         )}&body=${encodeURIComponent(body)}`;
 
         setSent(true);
+        if (onToast) onToast("Opening email client...");
         window.location.href = mailtoLink;
 
         setTimeout(() => {
@@ -51,17 +59,29 @@ const Contact = ({contact}) => {
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                     />
-                    <button type="submit" disabled={!canSend}>
-                        {sent ? (
-                            <>
-                                Opening Email Client... <CheckCircle2 size={16} strokeWidth={1.75}/>
-                            </>
-                        ) : (
-                            <>
-                                Send <Send size={16} strokeWidth={1.75}/>
-                            </>
-                        )}
-                    </button>
+                    <div className="contact-actions">
+                        <button type="submit" disabled={!canSend} className="btn-send">
+                            {sent ? (
+                                <>
+                                    Opening Email Client... <CheckCircle2 size={16} strokeWidth={1.75}/>
+                                </>
+                            ) : (
+                                <>
+                                    Send <Send size={16} strokeWidth={1.75}/>
+                                </>
+                            )}
+                        </button>
+                        <button
+                            type="button"
+                            className="btn-clear"
+                            onClick={handleClear}
+                            disabled={!hasInput}
+                            title="Clear inputs"
+                        >
+                            <RotateCcw size={15} strokeWidth={1.75}/>
+                            <span>Clear</span>
+                        </button>
+                    </div>
                 </form>
             </section>
         </FadeInSection>

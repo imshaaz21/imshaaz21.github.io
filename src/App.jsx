@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import CursorGlow from "./components/CursorGlow";
 import CommandPalette from "./components/CommandPalette";
+import Toast from "./components/Toast";
 import content from "./data/content.json";
 
 function App() {
@@ -19,9 +20,19 @@ function App() {
     const [showScrollTopButton, setShowScrollTopButton] = useState(false);
     const [activeSection, setActiveSection] = useState("about");
     const [isCmdPaletteOpen, setIsCmdPaletteOpen] = useState(false);
+    const [toastMessage, setToastMessage] = useState(null);
 
     const isClickScrollingRef = useRef(false);
     const clickTimeoutRef = useRef(null);
+    const toastTimeoutRef = useRef(null);
+
+    const showToast = useCallback((msg) => {
+        setToastMessage(msg);
+        if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
+        toastTimeoutRef.current = setTimeout(() => {
+            setToastMessage(null);
+        }, 2800);
+    }, []);
 
     useEffect(() => {
         document.body.classList.remove("light-theme", "dark-theme");
@@ -195,6 +206,7 @@ function App() {
                     about={content.about}
                     socials={content.socials}
                     onOpenCmdPalette={() => setIsCmdPaletteOpen(true)}
+                    onToast={showToast}
                 />
                 <main className="main">
                     <About about={content.about}/>
@@ -202,7 +214,7 @@ function App() {
                     <Projects projects={content.projects}/>
                     <Skills skills={content.skills}/>
                     <Educations educations={content.education}/>
-                    <Contact contact={content.contact}/>
+                    <Contact contact={content.contact} onToast={showToast}/>
                     <Footer/>
                 </main>
             </div>
@@ -213,6 +225,7 @@ function App() {
                 scrollToSection={scrollToSection}
                 about={content.about}
             />
+            <Toast message={toastMessage} onClose={() => setToastMessage(null)}/>
         </>
     );
 }
