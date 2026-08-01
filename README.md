@@ -1,29 +1,73 @@
-# Portfolio
+# Shanaaz Ahamed — Personal Portfolio
 
-Source for [imshaaz21.github.io](https://imshaaz21.github.io) - a minimal, single-page portfolio built with React +
-Vite.
+Personal portfolio website built with React, Vite, and custom CSS. Inspired by modern terminal interfaces with an interactive command palette and smooth scroll-spy navigation.
 
-## Run locally
+Live Site: [imshaaz21.github.io](https://imshaaz21.github.io)
+
+---
+
+## Key Features
+
+- **Terminal Aesthetics**: Zsh/Bash-inspired user interface with custom theme presets (Terminal, Cyberpunk, Emerald, Nordic, Minimal).
+- **Interactive Command Palette**: Press `Ctrl+K` or `/` to launch the terminal command palette for instant search, section navigation, and theme toggling.
+- **High-Performance Navigation**: Hardware-accelerated ScrollSpy powered by `IntersectionObserver` for smooth 60+ fps scrolling.
+- **Data-Driven Architecture**: Easily update bio, experience, projects, skills, education, and contact details from `src/data/content.json`.
+
+---
+
+## Tech Stack
+
+- **Framework**: React 18 + Vite
+- **Styling**: Vanilla CSS (CSS Variables, Flexbox/Grid, Glassmorphism)
+- **Icons**: Lucide React
+- **Deployment**: GitHub Pages (via GitHub Actions)
+
+---
+
+## Getting Started
+
+### 1. Install Dependencies
 
 ```bash
 npm install
+```
+
+### 2. Run Development Server
+
+```bash
 npm run dev
 ```
 
-## Update content
+### 3. Build for Production
 
-All page content (bio, experience, projects, skills, education, contact) lives in **`src/data/content.json`**. Edit that
-file (via the GitHub web editor, the GitHub mobile app, or locally) and push/commit to `main`. A GitHub Actions
-workflow (`.github/workflows/deploy.yml`) rebuilds and redeploys the site automatically. No backend, no database, no
-build step to run by hand.
+```bash
+npm run build
+```
 
-To update your photo or the downloadable CV, replace the file in `public/` (`my-image.png`, `Shanaaz-Ahamed-CV.pdf`).
-The filenames referenced in `content.json` must match.
+---
 
-**CV note:** the publicly downloadable CV should not include the References section (personal contact details of your
-references). Keep a separate full version for direct applications.
+## Project Structure
 
-## Deploy
+```text
+├── src/
+│   ├── components/     # React UI components & Command Palette
+│   ├── data/           # content.json (Site content)
+│   ├── App.jsx         # Main application layout & ScrollSpy
+│   └── index.css       # Design tokens, themes & resets
+├── public/             # Static assets (images, CV PDF)
+└── .github/workflows/  # Automated GitHub Pages deployment
+```
 
-Deployment is automatic on every push to `main` via GitHub Actions → GitHub Pages. One-time setup required: **Settings →
-Pages → Source: GitHub Actions**.
+---
+
+## Updating Content
+
+All text content, experience records, projects, and skills are configured in **`src/data/content.json`**. Modifying this file automatically updates the portfolio upon commit.
+
+To update static files (profile picture or CV PDF), replace the corresponding files inside the `public/` folder.
+
+---
+
+## License
+
+MIT © [Shanaaz Ahamed](https://github.com/imshaaz21)
