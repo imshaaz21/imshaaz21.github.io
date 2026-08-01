@@ -420,6 +420,7 @@ button {
     }
 
     .desktop-nav,
+    .sidebar-cmd-wrapper,
     .sidebar-footer {
         display: none !important;
     }
@@ -550,12 +551,89 @@ button {
 .terminal-window-bar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.75rem;
     padding: 0.45rem 0.75rem;
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 6px;
     margin-bottom: 1.25rem;
+}
+
+.terminal-window-bar.interactive {
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.terminal-window-bar.interactive:hover {
+    border-color: var(--accent);
+    background: var(--bg-panel);
+}
+
+.terminal-bar-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+}
+
+.terminal-window-bar.interactive:hover .terminal-bar-badge {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.sidebar-cmd-wrapper {
+    margin-top: 1rem;
+    margin-bottom: 0.65rem;
+}
+
+.sidebar-search-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 0.45rem 0.65rem;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sidebar-search-btn:hover {
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+.search-btn-left {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.search-btn-left svg {
+    color: var(--accent);
+}
+
+.search-btn-kbd {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--text-muted);
+}
+
+.sidebar-search-btn:hover .search-btn-kbd {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .terminal-dots {

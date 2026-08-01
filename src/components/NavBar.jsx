@@ -1,7 +1,7 @@
 import {useContext, useEffect, useRef} from "react";
 import {ThemeContext} from "../ThemeContext";
 import SocialMediaIcons from "./SocialMediaIcons";
-import {Moon, Sun, Terminal} from "lucide-react";
+import {Moon, Search, Sun, Terminal} from "lucide-react";
 
 const sections = [
     {id: "about", label: "about"},
@@ -32,13 +32,21 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                 <span style={{width: "var(--scroll-progress, 0%)"}}/>
             </div>
 
-            <div className="terminal-window-bar">
+            <div
+                className="terminal-window-bar interactive"
+                onClick={onOpenCmdPalette}
+                title="Click or press Ctrl+K to open Terminal Command Palette"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpenCmdPalette()}
+            >
                 <div className="terminal-dots" aria-hidden="true">
                     <span className="dot dot-close"/>
                     <span className="dot dot-min"/>
                     <span className="dot dot-max"/>
                 </div>
                 <span className="terminal-title">zsh: shanaaz@dev:~</span>
+                <span className="terminal-bar-badge">Ctrl+K</span>
             </div>
 
             <div className="sidebar-top">
@@ -57,18 +65,6 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                         <span className="prompt-symbol">❯</span> {about?.title}
                         <span className="terminal-cursor">_</span>
                     </p>
-
-                    <button
-                        className="terminal-trigger-btn"
-                        onClick={onOpenCmdPalette}
-                        title="Open Interactive Terminal (Ctrl+K or /)"
-                    >
-                        <span style={{display: "flex", alignItems: "center", gap: "0.35rem"}}>
-                            <Terminal size={13}/>
-                            <span>interactive terminal</span>
-                        </span>
-                        <span className="cmd-badge">Ctrl+K</span>
-                    </button>
                 </div>
 
                 <div className="mobile-header-right">
@@ -79,11 +75,33 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                     />
                     <button
                         className="theme-toggle-btn"
+                        onClick={onOpenCmdPalette}
+                        aria-label="Open terminal command palette"
+                        title="Interactive Terminal (Ctrl+K or /)"
+                    >
+                        <Terminal size={15}/>
+                    </button>
+                    <button
+                        className="theme-toggle-btn"
                         onClick={toggleTheme}
                         aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
                         title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
                     >
                         {theme === "dark" ? <Sun size={15}/> : <Moon size={15}/>}
+                    </button>
+                </div>
+
+                <div className="sidebar-cmd-wrapper">
+                    <button
+                        className="sidebar-search-btn"
+                        onClick={onOpenCmdPalette}
+                        title="Open Interactive Terminal (Ctrl+K or /)"
+                    >
+                        <span className="search-btn-left">
+                            <Search size={13}/>
+                            <span>search / commands</span>
+                        </span>
+                        <kbd className="search-btn-kbd">Ctrl+K</kbd>
                     </button>
                 </div>
 
