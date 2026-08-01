@@ -428,7 +428,16 @@ button {
     }
 
     .sidebar-title {
-        display: none !important;
+        display: flex !important;
+        align-items: center;
+        gap: 0.2rem;
+        font-size: 0.72rem !important;
+        color: var(--text-muted);
+        margin: 0.1rem 0 0 0 !important;
+        line-height: 1.15;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .desktop-nav,
