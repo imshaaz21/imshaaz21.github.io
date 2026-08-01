@@ -151,6 +151,7 @@
 --------------------------------------------------------------- */
 * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -1382,14 +1383,26 @@ button {
     justify-content: center;
     cursor: pointer;
     opacity: 0.9;
-    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
-.scroll-top-button:hover {
+.scroll-top-button:hover,
+.scroll-top-button:active {
     border-color: var(--accent);
     color: var(--accent);
     transform: translateY(-2px);
+}
+
+.scroll-top-button:focus {
+    outline: none;
+}
+
+.scroll-top-button:focus-visible {
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
 }
 
 /* ---------------------------------------------------------------
