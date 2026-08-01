@@ -6,7 +6,7 @@ const ScrollToTopButton = ({onClick}) => {
             className="scroll-top-button"
             aria-label="Scroll to top"
             title="Top"
-            onClick={() => onClick("about")}
+            onClick={() => onClick("top")}
         >
             <ArrowUp size={18} strokeWidth={1.75}/>
         </button>
@@ -14,3 +14,4 @@ const ScrollToTopButton = ({onClick}) => {
 };
 
 export default ScrollToTopButton;
+

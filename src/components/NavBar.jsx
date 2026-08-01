@@ -1,7 +1,7 @@
 import {useContext, useEffect, useRef} from "react";
 import {ThemeContext} from "../ThemeContext";
 import SocialMediaIcons from "./SocialMediaIcons";
-import {Moon, Sun} from "lucide-react";
+import {Moon, Sun, Terminal} from "lucide-react";
 
 const sections = [
     {id: "about", label: "about"},
@@ -12,7 +12,7 @@ const sections = [
     {id: "contact", label: "contact"},
 ];
 
-const NavBar = ({scrollToSection, scrollProgress, about, socials, activeSection}) => {
+const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalette}) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const activeMobileTabRef = useRef(null);
 
@@ -29,7 +29,7 @@ const NavBar = ({scrollToSection, scrollProgress, about, socials, activeSection}
     return (
         <aside className="sidebar" id="navbar">
             <div className="sidebar-progress" aria-hidden="true">
-                <span style={{width: `${scrollProgress}%`}}/>
+                <span style={{width: "var(--scroll-progress, 0%)"}}/>
             </div>
 
             <div className="terminal-window-bar">
@@ -57,6 +57,18 @@ const NavBar = ({scrollToSection, scrollProgress, about, socials, activeSection}
                         <span className="prompt-symbol">❯</span> {about?.title}
                         <span className="terminal-cursor">_</span>
                     </p>
+
+                    <button
+                        className="terminal-trigger-btn"
+                        onClick={onOpenCmdPalette}
+                        title="Open Interactive Terminal (Ctrl+K or /)"
+                    >
+                        <span style={{display: "flex", alignItems: "center", gap: "0.35rem"}}>
+                            <Terminal size={13}/>
+                            <span>interactive terminal</span>
+                        </span>
+                        <span className="cmd-badge">Ctrl+K</span>
+                    </button>
                 </div>
 
                 <div className="mobile-header-right">

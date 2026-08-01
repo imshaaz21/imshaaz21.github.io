@@ -154,7 +154,8 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -340,12 +341,16 @@ button {
 .main {
     flex: 1;
     max-width: var(--max-width);
-    padding: 3rem 2.5rem 3.5rem;
+    padding: 3rem 2.5rem 8rem;
 }
 
 .section {
-    padding-bottom: 3.5rem;
+    padding-bottom: 4.5rem;
     scroll-margin-top: 2rem;
+}
+
+.section#contact {
+    min-height: calc(65vh - 80px);
 }
 
 .section h2 {
@@ -535,7 +540,8 @@ button {
     display: block;
     height: 100%;
     background: var(--accent);
-    transition: width 0.1s linear;
+    width: var(--scroll-progress, 0%);
+    transition: width 0.05s ease-out;
 }
 
 /* ---------------------------------------------------------------
@@ -1306,4 +1312,285 @@ button {
     border-color: var(--accent);
     color: var(--accent);
     transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------
+   Interactive Command Palette (Terminal Modal)
+--------------------------------------------------------------- */
+.cmd-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: cmd-fade-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cmd-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.cmd-modal-window {
+    width: 100%;
+    max-width: 680px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 80vh;
+    font-family: var(--font-mono);
+}
+
+.cmd-window-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.cmd-dots {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.cmd-window-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.cmd-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    border-radius: 4px;
+    transition: color 0.2s ease;
+}
+
+.cmd-close-btn:hover {
+    color: var(--text);
+}
+
+.cmd-suggestions-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-panel-alpha);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.cmd-suggestions-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.cmd-suggestions-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    margin-right: 0.2rem;
+}
+
+.cmd-chip {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+}
+
+.cmd-chip:hover {
+    border-color: var(--accent);
+    background: var(--border);
+}
+
+.cmd-terminal-body {
+    padding: 1rem;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    min-height: 200px;
+    max-height: 400px;
+}
+
+.cmd-log-line {
+    line-height: 1.5;
+}
+
+.cmd-system {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+.cmd-input-echo {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.cmd-text {
+    color: var(--text);
+    margin-left: 0.3rem;
+}
+
+.cmd-output {
+    color: var(--text);
+    padding-left: 0.5rem;
+}
+
+.cmd-success {
+    color: #4eb976;
+    padding-left: 0.5rem;
+}
+
+.cmd-error {
+    color: #ff5f56;
+    padding-left: 0.5rem;
+}
+
+.cmd-help-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-top: 0.25rem;
+}
+
+.cmd-help-title {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.cmd-help-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+}
+
+.cmd-help-row:hover {
+    background: var(--bg);
+}
+
+.cmd-code {
+    color: var(--accent);
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.cmd-desc {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.cmd-input-line {
+    display: flex;
+    align-items: center;
+    padding: 0.65rem 1rem;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    gap: 0.2rem;
+}
+
+.cmd-terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    margin-left: 0.35rem;
+}
+
+.cmd-send-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 4px;
+    padding: 0.25rem 0.45rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.cmd-send-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.terminal-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.6rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.terminal-trigger-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.cmd-badge {
+    font-size: 0.68rem;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    color: var(--text-muted);
 }
