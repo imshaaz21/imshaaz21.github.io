@@ -126,7 +126,7 @@ const CommandPalette = ({isOpen, onClose, scrollToSection, about}) => {
         if (!item) return;
 
         if (item.id === "whoami") {
-            setSystemOutput(`${about?.name || "Shanaaz Ahamed"} — ${about?.title || "Software Engineer"} (${about?.location || "Colombo, Sri Lanka"})`);
+            setSystemOutput(`${about?.name || "Shanaaz Ahamed"} | ${about?.title || "Software Engineer"} (${about?.location || "Colombo, Sri Lanka"})`);
             return;
         }
 
