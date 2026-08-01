@@ -214,7 +214,7 @@ function App() {
                     <Projects projects={content.projects}/>
                     <Skills skills={content.skills}/>
                     <Educations educations={content.education}/>
-                    <Contact contact={content.contact} onToast={showToast}/>
+                    <Contact contact={content.contact}/>
                     <Footer/>
                 </main>
             </div>

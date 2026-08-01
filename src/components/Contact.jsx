@@ -2,7 +2,7 @@ import {useState} from "react";
 import {CheckCircle2, RotateCcw, Send} from "lucide-react";
 import FadeInSection from "../utils/FadeInSection";
 
-const Contact = ({contact, onToast}) => {
+const Contact = ({contact}) => {
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
     const [sent, setSent] = useState(false);
@@ -13,7 +13,6 @@ const Contact = ({contact, onToast}) => {
     const handleClear = () => {
         setName("");
         setMessage("");
-        if (onToast) onToast("Contact form cleared");
     };
 
     const handleSubmit = (e) => {
@@ -27,7 +26,6 @@ const Contact = ({contact, onToast}) => {
         )}&body=${encodeURIComponent(body)}`;
 
         setSent(true);
-        if (onToast) onToast("Opening email client...");
         window.location.href = mailtoLink;
 
         setTimeout(() => {
