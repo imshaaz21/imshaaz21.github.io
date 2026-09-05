@@ -21,26 +21,29 @@
     "linkedin": "https://www.linkedin.com/in/imshaaz",
     "email": "shanaazahamed21@gmail.com"
   },
-  "experiences": [
+ "experiences": [
     {
       "position": "Software Engineer",
       "workplace": "Cloud Solutions International",
       "place": "Colombo, Sri Lanka",
       "date": "06/2024 - Present",
       "descriptions": [
-        "Automated the release process for VIDA4, a widely used Health Information System (HIS) across the Middle East, using Kubernetes, Python, and Liquibase to eliminate manual deployment efforts and accelerate release rollouts.",
-        "Upgraded the IAM solution by customizing Keycloak: developed custom UI and SPIs to decouple modifications from the core codebase for maintainable future upgrades (Java, React).",
-        "Developed full-stack features for the Finance and Administration modules of the VIDA4 platform using Spring Boot and Angular."
+        "Develop features for the Finance and Admin modules of the microservices-based VIDA4 Health Information System (HIS) using Spring Boot and Angular.",
+        "Take ownership of assigned Features, Change Requests (CRs), and critical production support (SWAT) tickets, striving for minimal bugs by thoroughly documenting testing and results.",
+        "Collaborated with the Research & Development team upon joining to streamline pipelines by automating deployment artifacts.",
+        "Upgraded the Keycloak to v26 by developing custom UIs and SPIs to decouple modifications from the core codebase for highly maintainable future upgrades.",
+        "Researched and evaluated infrastructure improvements, including the migration of object storage from Minio to CEPH."
       ]
     },
     {
       "position": "Data Science Intern",
       "workplace": "Dialog Axiata PLC",
-      "place": "Sri Lanka",
+      "place": "Colombo, Sri Lanka",
       "date": "01/2023 - 07/2023",
       "descriptions": [
-        "Developed an MDT Data Processing & Visualization web-based application (ReactJS, Python, JavaScript).",
-        "Built data models for network performance monitoring and anomaly detection."
+        "Developed an MDT (Minimization of Drive Tests) Data Processing & Visualization web application utilizing ReactJS, Mapbox, and a Python Flask backend[cite: 1].",
+        "Retrieved and cleaned raw telecommunications data from AWS to build cell-level and grid-level overlapping indicator summary tables[cite: 1].",
+        "Researched and evaluated time series models for anomaly detection and network performance monitoring on mobile network data."
       ]
     }
   ],
@@ -68,24 +71,6 @@
       "description": "Final year research project: Engineered a dynamic model-switching mechanism that automatically adapts to changing environmental domains (lighting, weather), combined with deep learning model pruning & quantization for edge deployment.",
       "image": "https://www.researchgate.net/publication/361431652/figure/fig1/AS:1182635082690571@1658973584077/Real-time-object-detection-performance-of-deep-YOLOv4-Redmon-and-Farhadi-2017-in-a.jpg",
       "link": "https://github.com/AKSHILMY/Domain-Specific-Object-Detection"
-    },
-    {
-      "title": "Health Companion App",
-      "description": "Active Aware: A Flutter health companion app giving users insight into sleep, activity and emotional wellbeing, aimed at holistic day-to-day health tracking.",
-      "image": "https://media.licdn.com/dms/image/C4D12AQHmVp_bbNawoQ/article-cover_image-shrink_600_2000/0/1641215225501?e=2147483647&v=beta&t=nyKHS_TLfn73Bw0_wQYzCul8_-WiSl2pWxfT1t9E8e0",
-      "link": "https://github.com/imshaaz21/Health_Companion_App"
-    },
-    {
-      "title": "The Bank App",
-      "description": "Extends banking reach to local agents via mobile: withdrawals, deposits and balance inquiries synced to a centralized database, with account management, interest calculation and fixed deposit plans.",
-      "image": "https://130e178e8f8ba617604b-8aedd782b7d22cfe0d1146da69a52436.ssl.cf1.rackcdn.com/mobile-banking-apps-riddled-vulnerabilities-report-showcase_image-6-a-14453.jpg",
-      "link": "https://github.com/imshaaz21/TheBankApp"
-    },
-    {
-      "title": "Crop Monitoring & Smart Agriculture",
-      "description": "Portable device measuring key soil parameters to optimize fertilizer application. Android app (Flutter) visualizes the data, including leaf-disease detection, transmitted over Bluetooth Low Energy from an Arduino + sensor rig.",
-      "image": "https://user-images.githubusercontent.com/77115237/190918463-30444397-b4fa-42d4-a588-f7cb4a0e9d99.png",
-      "link": "https://github.com/imshaaz21/Crop-Monitoring-Smart-Agriculture"
     },
     {
       "title": "Canny Edge Detection from Scratch",
