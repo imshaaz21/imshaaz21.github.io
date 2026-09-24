@@ -4,8 +4,12 @@
     "title": "Software Engineer",
     "location": "Matara, Sri Lanka",
     "image": "/my-image.webp",
-    "description": "Software Engineer with over two years of experience building enterprise healthcare software. Full-stack Java developer using Spring Boot and Angular on a microservices architecture, with strong Python, Docker, Kubernetes and CI/CD experience. Experienced with PostgreSQL, Oracle, Liquibase and Keycloak. Currently pursuing an MSc in Computer Science (Cloud Computing) researching proactive, in-place Kubernetes autoscaling using workload forecasting and multi-agent reinforcement learning.",
-    "cv": "/Shanaaz-Ahamed-CV.pdf"
+    "description": [
+      "Over two years of experience building enterprise healthcare software. Full-stack Java developer using Spring Boot and Angular on a microservices architecture, with strong Python, Docker, Kubernetes and CI/CD experience. Experienced with PostgreSQL, Oracle, Liquibase and Keycloak.",
+      "Currently pursuing an MSc in Computer Science (Cloud Computing) researching proactive, in-place Kubernetes autoscaling using workload forecasting and multi-agent reinforcement learning."
+    ],
+    "cv": "/Shanaaz-Ahamed-CV.pdf",
+    "headline": "Software Engineer building enterprise healthcare systems"
   },
   "socials": {
     "github": "https://github.com/imshaaz21",
@@ -17,7 +21,7 @@
       "position": "Software Engineer",
       "workplace": "Cloud Solutions International",
       "place": "Colombo, Sri Lanka",
-      "date": "Jun 2024 - Present",
+      "date": "Jun 2024 – Present",
       "groups": [
         {
           "title": "Finance and Admin Module (Java, Spring Boot, Angular)",
@@ -42,7 +46,7 @@
       "position": "Data Science Intern, Access and Network Planning",
       "workplace": "Dialog Axiata PLC",
       "place": "Colombo, Sri Lanka",
-      "date": "Jan 2023 - Jul 2023",
+      "date": "Jan 2023 – Jul 2023",
       "descriptions": [
         "Built an MDT data processing and visualisation web application and machine learning anomaly detection models for cellular network data (Python, ReactJS)."
       ]
@@ -52,13 +56,13 @@
     {
       "field": "MSc in Computer Science, Specialisation in Cloud Computing",
       "place": "University of Moratuwa, Sri Lanka",
-      "date": "Jan 2025 - Present",
+      "date": "Jan 2025 – Present",
       "descriptions": []
     },
     {
       "field": "BSc (Hons) in Engineering",
       "place": "University of Moratuwa, Sri Lanka",
-      "date": "2020 - 2024",
+      "date": "2020 – 2024",
       "descriptions": [
         "Department of Computer Science and Engineering",
         "Second Class (Upper Division), CGPA: 3.63 / 4.20"

@@ -12,6 +12,8 @@ const sections = [
     {id: "contact", label: "Contact"},
 ];
 
+const SEARCH_KEY = /Mac|iPhone|iPad/.test(navigator.userAgent) ? "⌘K" : "Ctrl+K";
+
 const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalette, onToast}) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const activeMobileTabRef = useRef(null);
@@ -35,7 +37,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
             <div
                 className="terminal-window-bar interactive"
                 onClick={onOpenCmdPalette}
-                title="Search (Ctrl+K)"
+                title={`Search (${SEARCH_KEY})`}
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpenCmdPalette()}
@@ -43,7 +45,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                 <span className="terminal-title">
                     <Search size={13} aria-hidden="true"/> Search
                 </span>
-                <span className="terminal-bar-badge">Ctrl+K</span>
+                <span className="terminal-bar-badge">{SEARCH_KEY}</span>
             </div>
 
             <div className="sidebar-top">
@@ -74,7 +76,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                         className="theme-toggle-btn"
                         onClick={onOpenCmdPalette}
                         aria-label="Search"
-                        title="Search (Ctrl+K or /)"
+                        title={`Search (${SEARCH_KEY} or /)`}
                     >
                         <Search size={15}/>
                     </button>

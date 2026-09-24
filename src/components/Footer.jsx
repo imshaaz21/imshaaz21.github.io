@@ -3,17 +3,7 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            <p>
-                &copy; {currentYear}{" "}
-                <a
-                    href="https://www.linkedin.com/in/imshaaz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    @imshaaz
-                </a>
-                . All rights reserved.
-            </p>
+            <p>&copy; {currentYear} Shanaaz Ahamed</p>
         </footer>
     );
 };

@@ -510,7 +510,7 @@ button {
 }
 
 .prompt-user {
-    color: #4eb976;
+    color: var(--text-muted);
     font-weight: 600;
 }
 
@@ -519,7 +519,7 @@ button {
 }
 
 .prompt-host {
-    color: #3b8eea;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
@@ -720,6 +720,9 @@ button {
     line-height: 1.7;
     max-width: 540px;
     margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .cv-button {
@@ -782,7 +785,6 @@ button {
     height: 8px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 8px var(--accent);
 }
 
 .timeline-date {
@@ -1113,10 +1115,6 @@ button {
     padding-top: 2rem;
     color: var(--text-muted);
     font-size: 0.85rem;
-}
-
-.footer a {
-    color: var(--accent);
 }
 
 .scroll-top-button {

@@ -16,13 +16,15 @@ const About = ({about}) => {
                         height={120}
                     />
                     <div>
-                        <h2>
-                            Hi, I&apos;m {about?.name}
-                        </h2>
+                        <h2>{about?.headline}</h2>
                         {about?.location && (
                             <p className="about-location">{about.location}</p>
                         )}
-                        <p className="about-description">{about?.description}</p>
+                        <div className="about-description">
+                            {[].concat(about?.description ?? []).map((para) => (
+                                <p key={para}>{para}</p>
+                            ))}
+                        </div>
                         {about?.cv && (
                             <a
                                 className="cv-button"
