@@ -41,13 +41,15 @@ const Projects = ({projects = []}) => {
                         const projectSlug = project.title
                             ? project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")
                             : "project";
+                        const Card = project.link ? "a" : "div";
+                        const linkProps = project.link
+                            ? {href: project.link, target: "_blank", rel: "noopener noreferrer"}
+                            : {};
                         return (
-                            <a
+                            <Card
                                 key={project.title}
                                 className={`project-card ${isFeatured ? "project-card-featured" : ""}`}
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                {...linkProps}
                             >
                                 {isFeatured && (
                                     <div className="featured-badge">
@@ -76,11 +78,13 @@ const Projects = ({projects = []}) => {
                                 <div className="project-card-body">
                                     <h3>
                                         {project.title}
-                                        <ArrowUpRight size={16} strokeWidth={1.75} className="project-arrow"/>
+                                        {project.link && (
+                                            <ArrowUpRight size={16} strokeWidth={1.75} className="project-arrow"/>
+                                        )}
                                     </h3>
                                     <p>{project.description}</p>
                                 </div>
-                            </a>
+                            </Card>
                         );
                     })}
                 </div>

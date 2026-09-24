@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Fired by imshaaz21/cv on push to its main branch
+  repository_dispatch:
+    types: [cv-updated]
   workflow_dispatch:
 
 permissions:
@@ -35,6 +38,25 @@ jobs:
 
       - name: Build site with Vite
         run: npm run build
+
+      # CV PDF is built from the private imshaaz21/cv repo (main branch), not committed here.
+      # CV_TOKEN: fine-grained PAT with Contents read on imshaaz21/cv.
+      - name: Checkout CV repo
+        uses: actions/checkout@v4
+        with:
+          repository: imshaaz21/cv
+          ref: main
+          token: ${{ secrets.CV_TOKEN }}
+          path: cv
+
+      - name: Build CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: cv
+
+      - name: Add CV to site
+        run: cp cv/main.pdf dist/Shanaaz-Ahamed-CV.pdf
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
