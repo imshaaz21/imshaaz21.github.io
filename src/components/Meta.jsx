@@ -11,7 +11,7 @@ const Meta = ({ meta }) => {
     ? meta.image.startsWith("http")
       ? meta.image
       : `https://imshaaz21.github.io${meta.image}`
-    : "https://imshaaz21.github.io/my-image.png";
+    : "https://imshaaz21.github.io/og-image.png";
 
   return (
     <Helmet>
