@@ -9,7 +9,6 @@ import Skills from "./components/Skills";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import CursorGlow from "./components/CursorGlow";
 import CommandPalette from "./components/CommandPalette";
 import Toast from "./components/Toast";
 import content from "./data/content.json";
@@ -189,7 +188,6 @@ function App() {
     return (
         <>
             <Meta meta={content.meta}/>
-            <CursorGlow/>
             <div className="layout">
                 <NavBar
                     scrollToSection={scrollToSection}
@@ -205,7 +203,7 @@ function App() {
                     <Projects projects={content.projects}/>
                     <Skills skills={content.skills}/>
                     <Educations educations={content.education}/>
-                    <Contact contact={content.contact}/>
+                    <Contact socials={content.socials}/>
                     <Footer/>
                 </main>
             </div>

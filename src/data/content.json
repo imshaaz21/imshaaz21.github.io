@@ -26,25 +26,34 @@
       "position": "Software Engineer",
       "workplace": "Cloud Solutions International",
       "place": "Colombo, Sri Lanka",
-      "date": "06/2024 - Present",
-      "descriptions": [
-        "Develop full-stack features for the Finance and Admin modules of VIDA4, a microservices-based Health Information System (HIS) used across HMG hospitals in Saudi Arabia, Bahrain and the UAE.",
-        "Build backend services and REST APIs in Java with Spring Boot, and frontend features in Angular and TypeScript.",
-        "Work with PostgreSQL and Oracle databases and manage schema changes with Liquibase.",
-        "Provide production support: investigate and resolve live issues, deliver bug fixes and hotfixes, and keep the modules stable for hospital users.",
-        "Automated VIDA4 release and deployment in Python: a CI/CD pipeline that packages and applies every artifact the microservices need to run (UI translations, permissions, configurations, backend Liquibase changelogs), removing manual steps and speeding up environment setup and release rollouts.",
-        "Implemented ArgoCD PreSync and PostSync hooks with Kubernetes init containers to apply all deployment artifacts (schema and data migrations, master data, configurations) across microservices in the correct order.",
-        "Upgraded customised Keycloak source (coupled with VIDA4) from version 6 to 26: updated custom Java SPIs for compatibility and fully migrated admin console and login UI from AngularJS to React."
+      "date": "Jun 2024 - Present",
+      "groups": [
+        {
+          "title": "Finance and Admin Module (Java, Spring Boot, Angular)",
+          "descriptions": [
+            "Develop full-stack features for the Finance and Admin modules of VIDA4, a microservices-based Health Information System (HIS) used across HMG hospitals in Saudi Arabia, Bahrain and the UAE.",
+            "Build backend services and REST APIs in Java with Spring Boot, and frontend features in Angular and TypeScript.",
+            "Work with PostgreSQL and Oracle databases and manage schema changes with Liquibase.",
+            "Provide production support: investigate and resolve live issues, deliver bug fixes and hotfixes, and keep the modules stable for hospital users."
+          ]
+        },
+        {
+          "title": "Special Projects, R&D (Python, Docker, Kubernetes, Keycloak)",
+          "descriptions": [
+            "Automated VIDA4 release and deployment in Python: a CI/CD pipeline that packages and applies every artifact the microservices need to run (UI translations, permissions, configurations, backend Liquibase changelogs), removing manual steps and speeding up environment setup and release rollouts.",
+            "Implemented ArgoCD PreSync and PostSync hooks with Kubernetes init containers to apply all deployment artifacts (schema and data migrations, master data, configurations) across microservices in the correct order.",
+            "Upgraded customised Keycloak source (coupled with VIDA4) from version 6 to 26: updated custom Java SPIs for compatibility and fully migrated admin console and login UI from AngularJS to React."
+          ]
+        }
       ]
     },
     {
       "position": "Data Science Intern, Access and Network Planning",
       "workplace": "Dialog Axiata PLC",
       "place": "Colombo, Sri Lanka",
-      "date": "01/2023 - 07/2023",
+      "date": "Jan 2023 - Jul 2023",
       "descriptions": [
-        "Built an MDT data processing and visualisation web application and machine learning anomaly detection models for cellular network data (Python, ReactJS).",
-        "Awarded Certificate of Merit, Institution of Engineers, Sri Lanka (IESL), Migara Ratnatunga Trust Awards 2022/2023."
+        "Built an MDT data processing and visualisation web application and machine learning anomaly detection models for cellular network data (Python, ReactJS)."
       ]
     }
   ],
@@ -52,7 +61,7 @@
     {
       "field": "MSc in Computer Science, Specialisation in Cloud Computing",
       "place": "University of Moratuwa, Sri Lanka",
-      "date": "01/2025 - Present",
+      "date": "Jan 2025 - Present",
       "descriptions": []
     },
     {
@@ -68,44 +77,89 @@
   "projects": [
     {
       "title": "PRIMA-K8s: Proactive Multi-Agent In-Place Autoscaling for Kubernetes",
-      "description": "MSc research: a Kubernetes autoscaling framework that forecasts workload demand with a Transformer model (PyTorch) and resizes running pods in place via the Pod Resize API. Cooperative multi-agent RL agents (MAPPO, Ray RLlib) allocate CPU and memory across microservices, run by a Python Kubernetes operator (kopf) with Prometheus monitoring."
+      "description": "MSc research: a Kubernetes autoscaling framework that forecasts workload demand with a Transformer model (PyTorch) and resizes running pods in place via the Pod Resize API. Cooperative multi-agent RL agents (MAPPO, Ray RLlib) allocate CPU and memory across microservices, run by a Python Kubernetes operator (kopf) with Prometheus monitoring.",
+      "tags": [
+        "PyTorch",
+        "Ray RLlib",
+        "Kubernetes",
+        "kopf",
+        "Prometheus"
+      ]
     },
     {
       "title": "Enhancing Outdoor Computer Vision in Resource-Constrained Environments",
-      "description": "Final year research project: Engineered a dynamic model-switching mechanism that automatically adapts to changing environmental domains (lighting, weather), combined with deep learning model pruning & quantization for edge deployment.",
-      "image": "https://www.researchgate.net/publication/361431652/figure/fig1/AS:1182635082690571@1658973584077/Real-time-object-detection-performance-of-deep-YOLOv4-Redmon-and-Farhadi-2017-in-a.jpg"
+      "description": "Final year research project: engineered a dynamic model-switching mechanism that automatically adapts to changing environmental domains (lighting, weather), combined with deep learning model pruning and quantisation for edge deployment.",
+      "tags": [
+        "Computer Vision",
+        "Deep Learning",
+        "Model Compression"
+      ]
     },
     {
       "title": "Canny Edge Detection from Scratch",
       "description": "Canny edge detection implemented from first principles in Python with grayscale conversion, Gaussian blur, gradient estimation, non-maximum suppression and dual thresholding, using only NumPy and Matplotlib.",
-      "image": "/projects/cannyEdge.png",
-      "link": "https://github.com/imshaaz21/CannyEdgeDetection"
+      "link": "https://github.com/imshaaz21/CannyEdgeDetection",
+      "tags": [
+        "Python",
+        "NumPy",
+        "Matplotlib"
+      ]
     }
   ],
   "skills": [
     {
       "category": "Languages",
-      "items": ["Java", "Python", "TypeScript", "JavaScript", "SQL", "HTML", "CSS", "Dart"]
+      "items": [
+        "Java",
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "SQL",
+        "Dart"
+      ]
     },
     {
       "category": "Frameworks",
-      "items": ["Spring Boot", "Angular", "React", "Django", "Flutter"]
+      "items": [
+        "Spring Boot",
+        "Angular",
+        "React",
+        "Django",
+        "Flutter"
+      ]
     },
     {
       "category": "Databases",
-      "items": ["PostgreSQL", "Oracle", "MongoDB"]
+      "items": [
+        "PostgreSQL",
+        "Oracle",
+        "MongoDB"
+      ]
     },
     {
       "category": "DevOps and Tools",
-      "items": ["Docker", "Kubernetes", "ArgoCD", "CI/CD", "Liquibase", "Kafka", "Keycloak", "Git"]
+      "items": [
+        "Docker",
+        "Kubernetes",
+        "ArgoCD",
+        "CI/CD",
+        "Liquibase",
+        "Kafka",
+        "Keycloak",
+        "Git"
+      ]
     },
     {
-      "category": "Other",
-      "items": ["Microservices", "REST APIs", "IAM", "OAuth 2.0", "OpenID Connect (OIDC)", "Machine Learning", "Anomaly Detection"]
+      "category": "Concepts",
+      "items": [
+        "Microservices",
+        "REST APIs",
+        "IAM",
+        "OAuth 2.0",
+        "OpenID Connect (OIDC)",
+        "Machine Learning",
+        "Anomaly Detection"
+      ]
     }
-  ],
-  "contact": {
-    "name": "Shanaaz Ahamed",
-    "email": "shanaaz.ahd@gmail.com"
-  }
+  ]
 }

@@ -17,7 +17,7 @@ const About = ({about}) => {
                     />
                     <div>
                         <h2>
-                            Hi, I&apos;m {about?.name} <span className="wave">👋</span>
+                            Hi, I&apos;m {about?.name}
                         </h2>
                         {about?.location && (
                             <p className="about-location">{about.location}</p>

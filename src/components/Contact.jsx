@@ -1,90 +1,36 @@
-import {useState} from "react";
-import {CheckCircle2, RotateCcw, Send} from "lucide-react";
+import {Github, Linkedin, Mail} from "lucide-react";
 import FadeInSection from "../utils/FadeInSection";
 
-const Contact = ({contact}) => {
-    const [name, setName] = useState("");
-    const [message, setMessage] = useState("");
-    const [sent, setSent] = useState(false);
-
-    const canSend = name.trim() !== "" && message.trim() !== "";
-    const hasInput = name !== "" || message !== "";
-
-    const handleClear = () => {
-        setName("");
-        setMessage("");
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!canSend) return;
-
-        const subject = "Message from Portfolio Site";
-        const body = `Hi ${contact?.name ?? ""},\n\n${message}\n\nThanks,\n${name}`;
-        const mailtoLink = `mailto:${contact?.email ?? ""}?subject=${encodeURIComponent(
-            subject
-        )}&body=${encodeURIComponent(body)}`;
-
-        setSent(true);
-        window.location.href = mailtoLink;
-
-        setTimeout(() => {
-            setSent(false);
-        }, 4000);
-    };
+const Contact = ({socials}) => {
+    const links = [
+        socials?.email && {icon: Mail, label: "Email", value: socials.email, href: `mailto:${socials.email}`},
+        socials?.linkedin && {icon: Linkedin, label: "LinkedIn", value: socials.linkedin.replace(/^https?:\/\/(www\.)?/, ""), href: socials.linkedin},
+        socials?.github && {icon: Github, label: "GitHub", value: socials.github.replace(/^https?:\/\//, ""), href: socials.github},
+    ].filter(Boolean);
 
     return (
         <FadeInSection>
             <section className="section" id="contact">
-                <p className="eyebrow">./send_message.sh</p>
+                <p className="eyebrow">cat ~/contact</p>
                 <h2>Get in touch</h2>
-                <form className="contact-form" onSubmit={handleSubmit}>
-                    <label htmlFor="contact-name">Name</label>
-                    <input
-                        id="contact-name"
-                        type="text"
-                        placeholder="Your name"
-                        required
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <label htmlFor="contact-message">Message</label>
-                    <textarea
-                        id="contact-message"
-                        placeholder="What would you like to say?"
-                        required
-                        rows={4}
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                    />
-                    <div className="contact-actions">
-                        <button type="submit" disabled={!canSend} className="btn-send">
-                            {sent ? (
-                                <>
-                                    Opening Email Client... <CheckCircle2 size={16} strokeWidth={1.75}/>
-                                </>
-                            ) : (
-                                <>
-                                    Send <Send size={16} strokeWidth={1.75}/>
-                                </>
-                            )}
-                        </button>
-                        <button
-                            type="button"
-                            className="btn-clear"
-                            onClick={handleClear}
-                            disabled={!hasInput}
-                            title="Clear inputs"
-                        >
-                            <RotateCcw size={15} strokeWidth={1.75}/>
-                            <span>Clear</span>
-                        </button>
-                    </div>
-                </form>
+                <p className="contact-lead">The best way to reach me is by email.</p>
+                <ul className="contact-links">
+                    {links.map(({icon: Icon, label, value, href}) => (
+                        <li key={label}>
+                            <a
+                                href={href}
+                                {...(href.startsWith("http") && {target: "_blank", rel: "noopener noreferrer"})}
+                            >
+                                <Icon size={16} strokeWidth={1.75} aria-hidden="true"/>
+                                <span className="contact-label">{label}</span>
+                                <span className="contact-value">{value}</span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </section>
         </FadeInSection>
     );
 };
 
 export default Contact;
-

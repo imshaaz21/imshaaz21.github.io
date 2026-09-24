@@ -15,13 +15,18 @@ const Experiences = ({experiences = []}) => {
                                 {item.workplace}
                                 {item.place ? ` · ${item.place}` : ""}
                             </p>
-                            {item.descriptions?.length > 0 && (
-                                <ul className="timeline-list">
-                                    {item.descriptions.map((desc, idx) => (
-                                        <li key={idx}>{desc}</li>
-                                    ))}
-                                </ul>
-                            )}
+                            {(item.groups ?? [{descriptions: item.descriptions}]).map((group, gIdx) => (
+                                <div key={group.title ?? gIdx}>
+                                    {group.title && <h4 className="timeline-group">{group.title}</h4>}
+                                    {group.descriptions?.length > 0 && (
+                                        <ul className="timeline-list">
+                                            {group.descriptions.map((desc, idx) => (
+                                                <li key={idx}>{desc}</li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
+                            ))}
                         </div>
                     ))}
                 </div>

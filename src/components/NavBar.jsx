@@ -1,15 +1,15 @@
 import {useContext, useEffect, useRef} from "react";
 import {ThemeContext} from "../ThemeContext";
 import SocialMediaIcons from "./SocialMediaIcons";
-import {Moon, Sun, Terminal} from "lucide-react";
+import {Moon, Search, Sun} from "lucide-react";
 
 const sections = [
-    {id: "about", label: "about"},
-    {id: "experience", label: "experience"},
-    {id: "projects", label: "projects"},
-    {id: "skills", label: "skills"},
-    {id: "education", label: "education"},
-    {id: "contact", label: "contact"},
+    {id: "about", label: "About"},
+    {id: "experience", label: "Experience"},
+    {id: "projects", label: "Projects"},
+    {id: "skills", label: "Skills"},
+    {id: "education", label: "Education"},
+    {id: "contact", label: "Contact"},
 ];
 
 const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalette, onToast}) => {
@@ -35,17 +35,14 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
             <div
                 className="terminal-window-bar interactive"
                 onClick={onOpenCmdPalette}
-                title="Click or press Ctrl+K to open Terminal Command Palette"
+                title="Search (Ctrl+K)"
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpenCmdPalette()}
             >
-                <div className="terminal-dots" aria-hidden="true">
-                    <span className="dot dot-close"/>
-                    <span className="dot dot-min"/>
-                    <span className="dot dot-max"/>
-                </div>
-                <span className="terminal-title">zsh: shanaaz@dev:~</span>
+                <span className="terminal-title">
+                    <Search size={13} aria-hidden="true"/> Search
+                </span>
                 <span className="terminal-bar-badge">Ctrl+K</span>
             </div>
 
@@ -62,8 +59,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                     </div>
                     <h1 className="sidebar-name">{about?.name}</h1>
                     <p className="sidebar-title">
-                        <span className="prompt-symbol">❯</span> {about?.title}
-                        <span className="terminal-cursor">_</span>
+                        {about?.title}
                     </p>
                 </div>
 
@@ -77,10 +73,10 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                     <button
                         className="theme-toggle-btn"
                         onClick={onOpenCmdPalette}
-                        aria-label="Open terminal command palette"
-                        title="Interactive Terminal (Ctrl+K or /)"
+                        aria-label="Search"
+                        title="Search (Ctrl+K or /)"
                     >
-                        <Terminal size={15}/>
+                        <Search size={15}/>
                     </button>
                     <button
                         className="theme-toggle-btn"
@@ -102,9 +98,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                                         onClick={() => scrollToSection(section.id)}
                                         className={`terminal-nav-btn ${isActive ? "active" : ""}`}
                                     >
-                                        <span className="prompt-symbol">{isActive ? "❯" : "$"}</span>
-                                        <span className="nav-cmd">cd ~/{section.label}</span>
-                                        {isActive && <span className="terminal-active-indicator">_</span>}
+                                        {section.label}
                                     </button>
                                 </li>
                             );
@@ -125,8 +119,7 @@ const NavBar = ({scrollToSection, about, socials, activeSection, onOpenCmdPalett
                                     onClick={() => scrollToSection(section.id)}
                                     className={`mobile-terminal-tab ${isActive ? "active" : ""}`}
                                 >
-                                    <span className="mobile-prompt-symbol">{isActive ? "❯" : "$"}</span>
-                                    <span className="mobile-prompt-path">cd ~/{section.label}</span>
+                                    {section.label}
                                 </button>
                             );
                         })}

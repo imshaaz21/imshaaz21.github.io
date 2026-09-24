@@ -1,105 +1,64 @@
 import {useContext, useEffect, useRef, useState} from "react";
 import {ThemeContext} from "../ThemeContext";
 import {
+    Briefcase,
     CornerDownLeft,
     FileText,
-    Folder,
+    FolderGit2,
+    GraduationCap,
     Mail,
     Moon,
+    Search,
     Sun,
     User,
+    Wrench,
 } from "lucide-react";
 
-const COMMANDS = [
-    {
-        id: "about",
-        cmd: "cd ~/about",
-        title: "About",
-        icon: Folder,
-        action: (scrollToSection) => scrollToSection("about"),
-    },
-    {
-        id: "experience",
-        cmd: "cd ~/experience",
-        title: "Experience",
-        icon: Folder,
-        action: (scrollToSection) => scrollToSection("experience"),
-    },
-    {
-        id: "projects",
-        cmd: "cd ~/projects",
-        title: "Projects",
-        icon: Folder,
-        action: (scrollToSection) => scrollToSection("projects"),
-    },
-    {
-        id: "skills",
-        cmd: "cd ~/skills",
-        title: "Skills",
-        icon: Folder,
-        action: (scrollToSection) => scrollToSection("skills"),
-    },
-    {
-        id: "education",
-        cmd: "cd ~/education",
-        title: "Education",
-        icon: Folder,
-        action: (scrollToSection) => scrollToSection("education"),
-    },
-    {
-        id: "contact",
-        cmd: "cd ~/contact",
-        title: "Contact",
-        icon: Mail,
-        action: (scrollToSection) => scrollToSection("contact"),
-    },
-    {
-        id: "theme",
-        cmd: "theme toggle",
-        title: "Toggle Theme",
-        icon: Moon,
-        action: (scrollToSection, toggleTheme) => toggleTheme(),
-    },
-    {
-        id: "whoami",
-        cmd: "whoami",
-        title: "Who Am I",
-        icon: User,
-        action: null,
-    },
-    {
-        id: "cv",
-        cmd: "cat ~/cv.pdf",
-        title: "Download CV",
-        icon: FileText,
-        action: (scrollToSection, toggleTheme, cvUrl) => {
-            if (cvUrl) window.open(cvUrl, "_blank");
-        },
-    },
+const SECTIONS = [
+    {id: "about", title: "About", icon: User},
+    {id: "experience", title: "Experience", icon: Briefcase},
+    {id: "projects", title: "Projects", icon: FolderGit2},
+    {id: "skills", title: "Skills", icon: Wrench},
+    {id: "education", title: "Education", icon: GraduationCap},
+    {id: "contact", title: "Contact", icon: Mail},
 ];
 
 const CommandPalette = ({isOpen, onClose, scrollToSection, about}) => {
     const {theme, toggleTheme} = useContext(ThemeContext);
     const [query, setQuery] = useState("");
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [systemOutput, setSystemOutput] = useState(null);
 
     const inputRef = useRef(null);
 
-    const filtered = COMMANDS.filter((item) => {
-        const q = query.toLowerCase().trim();
-        if (!q) return true;
-        return (
-            item.title.toLowerCase().includes(q) ||
-            item.cmd.toLowerCase().includes(q)
-        );
-    });
+    const commands = [
+        ...SECTIONS.map((s) => ({
+            ...s,
+            group: "Navigate",
+            run: () => scrollToSection(s.id),
+        })),
+        {
+            id: "theme",
+            group: "Actions",
+            title: theme === "dark" ? "Switch to light theme" : "Switch to dark theme",
+            icon: theme === "dark" ? Sun : Moon,
+            run: toggleTheme,
+        },
+        about?.cv && {
+            id: "cv",
+            group: "Actions",
+            title: "Download CV",
+            icon: FileText,
+            run: () => window.open(about.cv, "_blank"),
+        },
+    ].filter(Boolean);
+
+    const q = query.toLowerCase().trim();
+    const filtered = commands.filter((item) => !q || item.title.toLowerCase().includes(q));
 
     useEffect(() => {
         if (isOpen) {
             setQuery("");
             setSelectedIndex(0);
-            setSystemOutput(null);
             setTimeout(() => {
                 inputRef.current?.focus();
             }, 30);
@@ -124,16 +83,8 @@ const CommandPalette = ({isOpen, onClose, scrollToSection, about}) => {
 
     const executeItem = (item) => {
         if (!item) return;
-
-        if (item.id === "whoami") {
-            setSystemOutput(`${about?.name || "Shanaaz Ahamed"} | ${about?.title || "Software Engineer"} (${about?.location || "Colombo, Sri Lanka"})`);
-            return;
-        }
-
-        if (item.action) {
-            item.action(scrollToSection, toggleTheme, about?.cv);
-            onClose();
-        }
+        item.run();
+        onClose();
     };
 
     const handleKeyDown = (e) => {
@@ -145,64 +96,54 @@ const CommandPalette = ({isOpen, onClose, scrollToSection, about}) => {
             setSelectedIndex((prev) => (filtered.length > 0 ? (prev - 1 + filtered.length) % filtered.length : 0));
         } else if (e.key === "Enter") {
             e.preventDefault();
-            if (filtered.length > 0) {
-                executeItem(filtered[selectedIndex]);
-            }
+            executeItem(filtered[selectedIndex]);
         }
     };
 
     return (
         <div className="cmd-backdrop" onClick={onClose}>
-            <div className="cmd-dialog" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
+            <div
+                className="cmd-dialog"
+                onClick={(e) => e.stopPropagation()}
+                role="dialog"
+                aria-modal="true"
+                aria-label="Search"
+            >
                 <div className="cmd-header">
-                    <span className="cmd-prompt-symbol">❯</span>
+                    <Search size={16} className="cmd-search-icon" aria-hidden="true"/>
                     <input
                         ref={inputRef}
                         type="text"
                         className="cmd-input"
-                        placeholder="Type a command or search..."
+                        placeholder="Search sections and actions..."
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         onKeyDown={handleKeyDown}
                         autoComplete="off"
                         spellCheck="false"
                     />
-                    <kbd className="cmd-esc-badge" onClick={onClose}>esc</kbd>
+                    <kbd className="cmd-esc-badge" onClick={onClose}>Esc</kbd>
                 </div>
-
-                {systemOutput && (
-                    <div className="cmd-system-output">
-                        <span className="cmd-out-prefix">❯ output:</span>
-                        <span>{systemOutput}</span>
-                    </div>
-                )}
 
                 <div className="cmd-list">
                     {filtered.length === 0 ? (
-                        <div className="cmd-empty">No matching commands</div>
+                        <div className="cmd-empty">No results</div>
                     ) : (
                         filtered.map((item, index) => {
-                            const IconComp = item.icon;
+                            const Icon = item.icon;
                             const isSelected = index === selectedIndex;
+                            const showGroup = index === 0 || filtered[index - 1].group !== item.group;
                             return (
-                                <div
-                                    key={item.id}
-                                    className={`cmd-row ${isSelected ? "selected" : ""}`}
-                                    onClick={() => executeItem(item)}
-                                    onMouseEnter={() => setSelectedIndex(index)}
-                                >
-                                    <div className="cmd-row-left">
-                                        <span className="cmd-symbol">{isSelected ? "❯" : "$"}</span>
-                                        {item.id === "theme" ? (
-                                            theme === "dark" ? <Sun size={13}/> : <Moon size={13}/>
-                                        ) : (
-                                            <IconComp size={13}/>
-                                        )}
+                                <div key={item.id}>
+                                    {showGroup && <div className="cmd-group">{item.group}</div>}
+                                    <div
+                                        className={`cmd-row ${isSelected ? "selected" : ""}`}
+                                        onClick={() => executeItem(item)}
+                                        onMouseEnter={() => setSelectedIndex(index)}
+                                    >
+                                        <Icon size={15} strokeWidth={1.75} className="cmd-icon"/>
                                         <span className="cmd-title">{item.title}</span>
-                                    </div>
-                                    <div className="cmd-row-right">
-                                        <code className="cmd-code">{item.cmd}</code>
-                                        {isSelected && <CornerDownLeft size={12} className="cmd-enter"/>}
+                                        {isSelected && <CornerDownLeft size={13} className="cmd-enter"/>}
                                     </div>
                                 </div>
                             );
@@ -211,7 +152,9 @@ const CommandPalette = ({isOpen, onClose, scrollToSection, about}) => {
                 </div>
 
                 <div className="cmd-footer">
-                    <span>↑↓ navigate · ↵ select · esc close</span>
+                    <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+                    <span><kbd>↵</kbd> select</span>
+                    <span><kbd>Esc</kbd> close</span>
                 </div>
             </div>
         </div>
