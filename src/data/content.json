@@ -1,13 +1,4 @@
 {
-  "meta": {
-    "title": "Shanaaz Ahamed | Software Engineer",
-    "description": "Software Engineer building enterprise healthcare software with Java, Spring Boot, Angular, Python and Kubernetes. MSc researcher in proactive Kubernetes autoscaling.",
-    "keywords": "Shanaaz Ahamed, imshaaz21, Software Engineer, Java, Spring Boot, Angular, Python, Kubernetes, ArgoCD, Keycloak, HIS, Portfolio",
-    "siteName": "Shanaaz Ahamed",
-    "url": "https://imshaaz21.github.io",
-    "image": "/og-image.png",
-    "type": "website"
-  },
   "about": {
     "name": "Shanaaz Ahamed",
     "title": "Software Engineer",

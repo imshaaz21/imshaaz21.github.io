@@ -1,5 +1,4 @@
 import {useCallback, useEffect, useRef, useState} from "react";
-import Meta from "./components/Meta";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Experiences from "./components/Experiences";
@@ -187,7 +186,6 @@ function App() {
 
     return (
         <>
-            <Meta meta={content.meta}/>
             <div className="layout">
                 <NavBar
                     scrollToSection={scrollToSection}
