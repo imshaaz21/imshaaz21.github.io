@@ -3,7 +3,7 @@
     "name": "Shanaaz Ahamed",
     "title": "Software Engineer",
     "location": "Matara, Sri Lanka",
-    "image": "/my-image.png",
+    "image": "/my-image.webp",
     "description": "Software Engineer with over two years of experience building enterprise healthcare software. Full-stack Java developer using Spring Boot and Angular on a microservices architecture, with strong Python, Docker, Kubernetes and CI/CD experience. Experienced with PostgreSQL, Oracle, Liquibase and Keycloak. Currently pursuing an MSc in Computer Science (Cloud Computing) researching proactive, in-place Kubernetes autoscaling using workload forecasting and multi-agent reinforcement learning.",
     "cv": "/Shanaaz-Ahamed-CV.pdf"
   },
