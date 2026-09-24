@@ -20,20 +20,9 @@
 }
 
 /* ---------------------------------------------------------------
-   Theme Presets & Variables
+   Theme Variables
 --------------------------------------------------------------- */
-.theme-cyberpunk.dark-theme {
-    --bg: #0b0e14;
-    --bg-panel: #121824;
-    --bg-panel-alpha: rgba(18, 24, 36, 0.9);
-    --text: #e2e8f0;
-    --text-muted: #94a3b8;
-    --border: #1e293b;
-    --accent: #00f2fe;
-    --accent-contrast: #0b0e14;
-}
-
-.theme-terminal.dark-theme {
+.dark-theme {
     --bg: #11151b;
     --bg-panel: #1a2029;
     --bg-panel-alpha: rgba(26, 32, 41, 0.9);
@@ -42,39 +31,6 @@
     --border: #262d38;
     --accent: #d9822b;
     --accent-contrast: #14181c;
-}
-
-.theme-minimal.dark-theme {
-    --bg: #09090b;
-    --bg-panel: #18181b;
-    --bg-panel-alpha: rgba(24, 24, 27, 0.9);
-    --text: #f4f4f5;
-    --text-muted: #a1a1aa;
-    --border: #27272a;
-    --accent: #fafafa;
-    --accent-contrast: #09090b;
-}
-
-.theme-emerald.dark-theme {
-    --bg: #0d1117;
-    --bg-panel: #161b22;
-    --bg-panel-alpha: rgba(22, 27, 34, 0.9);
-    --text: #e6edf3;
-    --text-muted: #8b949e;
-    --border: #30363d;
-    --accent: #3fb950;
-    --accent-contrast: #0d1117;
-}
-
-.theme-nordic.dark-theme {
-    --bg: #0f172a;
-    --bg-panel: #1e293b;
-    --bg-panel-alpha: rgba(30, 41, 59, 0.9);
-    --text: #f1f5f9;
-    --text-muted: #94a3b8;
-    --border: #334155;
-    --accent: #38bdf8;
-    --accent-contrast: #0f172a;
 }
 
 .light-theme {
@@ -87,64 +43,6 @@
     --accent: #d9822b;
     --accent-contrast: #14181c;
 }
-
-.theme-cyberpunk.light-theme {
-    --accent: #0284c7;
-}
-
-.theme-emerald.light-theme {
-    --accent: #16a34a;
-}
-
-.theme-nordic.light-theme {
-    --accent: #0284c7;
-}
-
-.theme-selector-desktop {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    margin-bottom: 0.75rem;
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--text-muted);
-}
-
-.theme-selector-desktop label {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.theme-style-select-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.theme-style-select {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    padding: 0.25rem 0.45rem;
-    cursor: pointer;
-    outline: none;
-}
-
-.theme-style-select:focus {
-    border-color: var(--accent);
-}
-
-.sidebar-footer-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
 
 /* ---------------------------------------------------------------
    Reset

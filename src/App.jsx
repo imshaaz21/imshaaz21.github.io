@@ -1,5 +1,4 @@
-import {useCallback, useContext, useEffect, useRef, useState} from "react";
-import {ThemeContext} from "./ThemeContext";
+import {useCallback, useEffect, useRef, useState} from "react";
 import Meta from "./components/Meta";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
@@ -16,7 +15,6 @@ import Toast from "./components/Toast";
 import content from "./data/content.json";
 
 function App() {
-    const {theme} = useContext(ThemeContext);
     const [showScrollTopButton, setShowScrollTopButton] = useState(false);
     const [activeSection, setActiveSection] = useState("about");
     const [isCmdPaletteOpen, setIsCmdPaletteOpen] = useState(false);
@@ -33,13 +31,6 @@ function App() {
             setToastMessage(null);
         }, 2800);
     }, []);
-
-    useEffect(() => {
-        document.body.classList.remove("light-theme", "dark-theme");
-        document.body.classList.add(
-            theme === "dark" ? "dark-theme" : "light-theme"
-        );
-    }, [theme]);
 
     const scrollToSection = useCallback((sectionId) => {
         // Prevent scroll-spy from changing section while smooth scrolling to clicked nav item
